@@ -32,7 +32,7 @@ async function u(r) {
     return { data: null, error: a(t) };
   }
 }
-async function c(r, t = "https://y.co/myco/boards", e = "magiclink") {
+async function c(r, t = "/myco/boards", e = "magiclink") {
   try {
     const { error: n } = await o.auth.verifyOtp({
       token_hash: r,

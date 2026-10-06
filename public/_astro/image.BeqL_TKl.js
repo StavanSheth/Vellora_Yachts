@@ -1,10 +1,4 @@
-const i = "https://yco-serverless.netlify.app/images",
-  u = "https://assets.y.co",
-  l = "https://cdn-image.y.co",
-  f = "https://cdn-video.y.co",
-  g = "https://video.y.co",
-  p = "dcis5o17u",
-  R = "https://res.cloudinary.com",
+const i = "", u = "", l = "", f = "", g = "", p = "dcis5o17u", R = "",
   o = { "1/1": "1:1", "3/2": "3:2", "4/5": "4:5", "16/9": "16:9" };
 function _({ f: t = "auto", q: n = "70", c: r = "fill", ...e }) {
   return Object.entries({ f: t, q: n, c: r, ...e })

@@ -636,22 +636,43 @@ header.header .header-user__btn svg {
   box-sizing: border-box !important;
 }
 
-/* 7. ENQUIRE BUTTON PILL */
+/* 7. ENQUIRE BUTTON PILL - SINGLE LIQUID GLASS PILL, NO GREEN */
 .header__cta-desktop,
-div.header__cta-desktop {
+div.header__cta-desktop,
+header.header .header__cta-desktop {
   display: inline-flex !important;
   align-items: center !important;
   margin-left: 6px !important;
-  padding-left: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .header__cta-desktop button,
+header.header .header__cta-desktop button {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  outline: none !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
 .header__cta-desktop .ui-button,
-.header__cta-desktop .ui-button--type-yellow {
+.header__cta-desktop .ui-button--type-yellow,
+.header__cta-desktop .ui-button--type-offblack,
+header.header .header__cta-desktop .ui-button {
   height: 38px !important;
+  min-height: 38px !important;
   border-radius: 9999px !important;
-  padding: 0 22px !important;
-  font-family: 'Inter', sans-serif !important;
+  padding: 0 18px !important;
+  font-family: 'Inter', -apple-system, sans-serif !important;
   font-size: 0.76rem !important;
   font-weight: 600 !important;
   letter-spacing: 0.12em !important;
@@ -664,6 +685,20 @@ div.header__cta-desktop {
   line-height: 38px !important;
   box-sizing: border-box !important;
   transition: all 0.25s ease !important;
+  cursor: pointer !important;
+}
+
+.header__cta-desktop .ui-button .ui-button__text,
+header.header .header__cta-desktop .ui-button .ui-button__text {
+  background: transparent !important;
+  color: inherit !important;
+  line-height: inherit !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.header__cta-desktop .ui-button__cursor {
+  display: none !important;
 }
 
 /* ==========================================================================
@@ -735,16 +770,23 @@ header.header:not(.header--has-scrolled) .header-user__btn:hover {
   transform: translateY(-1px) !important;
 }
 
-/* Enquire Button at Top */
-header.header:not(.header--has-scrolled) .header__cta-desktop .ui-button {
-  background: rgba(18, 60, 54, 0.85) !important;
-  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+/* Enquire Button at Top: ONLY Liquid Glass, ZERO Green */
+header.header:not(.header--has-scrolled) .header__cta-desktop .ui-button,
+header.header:not(.header--has-scrolled) .header__cta-desktop .ui-button--type-offblack,
+header.header:not(.header--has-scrolled) .header__cta-desktop .ui-button--type-yellow {
+  background: rgba(255, 255, 255, 0.14) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
   color: #FFFFFF !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
 }
 
-header.header:not(.header--has-scrolled) .header__cta-desktop .ui-button:hover {
-  background: rgba(31, 90, 80, 0.95) !important;
+header.header:not(.header--has-scrolled) .header__cta-desktop .ui-button:hover,
+header.header:not(.header--has-scrolled) .header__cta-desktop .ui-button--type-offblack:hover,
+header.header:not(.header--has-scrolled) .header__cta-desktop .ui-button--type-yellow:hover {
+  background: rgba(255, 255, 255, 0.28) !important;
+  border-color: rgba(255, 255, 255, 0.65) !important;
   color: #FFFFFF !important;
   transform: translateY(-1px) !important;
 }

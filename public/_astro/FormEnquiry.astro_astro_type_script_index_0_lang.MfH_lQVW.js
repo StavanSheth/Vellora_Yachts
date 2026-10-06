@@ -132,7 +132,7 @@ g.data(
     fields: d(),
     loading: !1,
     serverError: null,
-    moodboardURL: "https://y.co/board/test",
+    moodboardURL: "/board/test",
     init() {
       ((this.fields = S(this.fields, e)),
         (this.fields = F(this.fields)),
