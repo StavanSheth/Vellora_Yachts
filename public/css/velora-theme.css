@@ -168,10 +168,10 @@ body, p, span, a, button, input, textarea,
 }
 
 /* ==========================================================================
-   Navigation Bar: Liquid Glass Around Texts Only & Always Velora Shade Color
+   Navigation Bar: Low-Opacity Transparent Liquid Glass Around Individual Words
    ========================================================================== */
 
-/* Entire Navbar Container is Transparent (no bar-wide glass) */
+/* Entire Navbar Container is 100% Transparent */
 header.header,
 header.header.header--has-scrolled,
 header.header.header--hero,
@@ -199,29 +199,29 @@ header.header:not(.header--has-scrolled),
   align-items: center !important;
 }
 
-/* 1. Liquid Glass Capsule Around Logo */
+/* 1. Transparent Liquid Glass Around Logo */
 .header__logo.velora-logo-link {
-  background: rgba(245, 241, 232, 0.78) !important;
-  backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
-  border: 1px solid rgba(168, 137, 85, 0.35) !important;
+  background: rgba(255, 255, 255, 0.16) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.38) !important;
   border-radius: 9999px !important;
-  padding: 8px 24px !important;
+  padding: 8px 22px !important;
   margin-inline-start: 0 !important;
-  margin-right: 20px !important;
-  box-shadow: 0 6px 22px rgba(18, 60, 54, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+  margin-right: 18px !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
   display: inline-flex !important;
   align-items: center !important;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important;
+  transition: all 0.25s ease !important;
 }
 
 .header__logo.velora-logo-link:hover {
-  background: rgba(245, 241, 232, 0.9) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 8px 26px rgba(18, 60, 54, 0.16), inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.7) !important;
 }
 
-/* Logo Text - ALWAYS Velora Shade */
+/* Logo Text - ALWAYS Consistent Velora Shade Color */
 .velora-logo-wordmark,
 .header .velora-logo-wordmark,
 .header--has-scrolled .velora-logo-wordmark,
@@ -233,74 +233,69 @@ header.header:not(.header--has-scrolled) .velora-logo-wordmark {
 .header .velora-logo-tagline,
 .header--has-scrolled .velora-logo-tagline,
 header.header:not(.header--has-scrolled) .velora-logo-tagline {
-  color: var(--velora-brass) !important;
+  color: var(--velora-jade) !important;
+  opacity: 0.85 !important;
 }
 
-/* 2. Liquid Glass Circle Around Burger Button */
-.header__switch-desktop {
-  background: rgba(245, 241, 232, 0.78) !important;
-  backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
-  border: 1px solid rgba(168, 137, 85, 0.35) !important;
-  border-radius: 50% !important;
-  width: 48px !important;
-  height: 48px !important;
-  min-width: 48px !important;
+/* 2. Controls Visibility */
+.header__switch-desktop,
+.header__switch,
+.header__nav-back-btn,
+button.header__nav-back-btn,
+button.header__switch,
+button.header__switch-desktop {
+  display: none !important;
+}
+
+/* 3. Navigation Group Container: 100% Transparent (NO group capsule) */
+.header__nav-outer,
+header.header .header__nav-outer {
+  overflow: visible !important;
+}
+
+.header__nav-inner,
+header.header .header__nav-inner {
+  overflow: visible !important;
+  width: auto !important;
+}
+
+.header__nav,
+header.header .header__nav {
+  overflow: visible !important;
+  width: auto !important;
+}
+
+.header__list,
+header.header .header__list {
+  background: transparent !important;
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 7px !important;
+}
+
+.header__item,
+header.header .header__item {
   display: inline-flex !important;
   align-items: center !important;
-  justify-content: center !important;
-  box-shadow: 0 6px 20px rgba(18, 60, 54, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
-  margin-right: 14px !important;
-  cursor: pointer !important;
-  color: var(--velora-jade) !important;
-  transition: all 0.25s ease !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-shrink: 0 !important;
 }
 
-.header__switch-desktop:hover {
-  background: rgba(245, 241, 232, 0.9) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 8px 24px rgba(18, 60, 54, 0.16) !important;
-}
-
-.header__switch-desktop .header-burger {
-  color: var(--velora-jade) !important;
-  width: 36px !important;
-  height: 36px !important;
-  padding: 8px !important;
-}
-
-.header__switch-desktop .header-burger__inner:before,
-.header__switch-desktop .header-burger__inner:after,
-.header-burger__inner:before,
-.header-burger__inner:after {
-  background-color: var(--velora-jade) !important;
-}
-
-/* 3. Liquid Glass Capsule Around Navigation Text Links */
-@media (min-width: 1024px) {
-  .header__nav-inner,
-  .header__list {
-    background: rgba(245, 241, 232, 0.78) !important;
-    backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
-    -webkit-backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
-    border: 1px solid rgba(168, 137, 85, 0.35) !important;
-    border-radius: 9999px !important;
-    padding: 5px 14px !important;
-    box-shadow: 0 6px 22px rgba(18, 60, 54, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 4px !important;
-  }
-}
-
-/* Navigation Text Links - ALWAYS Velora Shade Color */
+/* Individual Words: Low-Opacity Transparent Liquid Glass Badge */
 header.header .header__link,
 header.header .header__item a,
 header.header .header__item button,
 header.header .header__list a,
 header.header .header__list button,
-header.header .header__primary a,
-header.header .header__primary button,
 header.header:not(.header--has-scrolled) .header__link,
 header.header:not(.header--has-scrolled) .header__item a,
 header.header:not(.header--has-scrolled) .header__item button,
@@ -310,42 +305,83 @@ header.header:not(.header--has-scrolled) .header__item button,
 .header__link,
 .header__item a,
 .header__item button {
+  background: rgba(255, 255, 255, 0.16) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.38) !important;
+  border-radius: 9999px !important;
+  padding: 7px 15px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
   font-family: 'Inter', sans-serif !important;
-  font-size: 0.82rem !important;
+  font-size: 0.78rem !important;
   font-weight: 600 !important;
-  letter-spacing: 0.08em !important;
+  letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
   color: var(--velora-jade) !important;
-  padding: 6px 14px !important;
-  border-radius: 9999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
   transition: all 0.25s ease !important;
 }
 
+/* Hover: subtle glass illumination, KEEPING identical text color throughout */
 header.header .header__link:hover,
 header.header .header__item a:hover,
 header.header .header__item button:hover,
 .header__link:hover {
-  color: var(--velora-brass) !important;
-  background: rgba(255, 255, 255, 0.7) !important;
+  background: rgba(255, 255, 255, 0.32) !important;
+  border-color: rgba(255, 255, 255, 0.65) !important;
+  color: var(--velora-jade) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09), inset 0 1px 1px rgba(255, 255, 255, 0.7) !important;
 }
 
-/* 4. Liquid Glass Capsule Around Secondary Action Icons */
-.header__secondary {
-  background: rgba(245, 241, 232, 0.78) !important;
-  backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
-  border: 1px solid rgba(168, 137, 85, 0.35) !important;
-  border-radius: 9999px !important;
-  padding: 4px 10px !important;
-  box-shadow: 0 6px 22px rgba(18, 60, 54, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+/* 4. Secondary Actions: Transparent Container with Individual Glass Buttons */
+.header__secondary,
+header.header .header__secondary {
+  background: transparent !important;
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
   display: inline-flex !important;
   align-items: center !important;
-  gap: 4px !important;
+  gap: 8px !important;
 }
 
-/* Action Icons - ALWAYS Velora Shade Color */
+/* Individual Secondary Icon Buttons: Circular Transparent Liquid Glass */
 .header__secondary button,
 .header__secondary a,
+.header__secondary .moodboard-button {
+  background: rgba(255, 255, 255, 0.16) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.38) !important;
+  border-radius: 50% !important;
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+  color: var(--velora-jade) !important;
+  transition: all 0.25s ease !important;
+}
+
+.header__secondary button:hover,
+.header__secondary a:hover,
+.header__secondary .moodboard-button:hover {
+  background: rgba(255, 255, 255, 0.32) !important;
+  border-color: rgba(255, 255, 255, 0.65) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09) !important;
+}
+
+/* Icons - Consistent Velora Jade throughout */
 .header__search-icon,
 .moodboard-button__icon,
 .header-user__btn,
@@ -355,41 +391,44 @@ header.header:not(.header--has-scrolled) .header__secondary svg,
 .header--has-scrolled .header__secondary svg {
   color: var(--velora-jade) !important;
   fill: currentColor !important;
-  transition: color 0.2s ease, transform 0.2s ease !important;
+  transition: color 0.2s ease !important;
 }
 
 .header__secondary button:hover svg,
-.header__secondary a:hover svg,
-.header__secondary button:hover,
-.header__secondary a:hover {
-  color: var(--velora-brass) !important;
-  fill: var(--velora-brass) !important;
+.header__secondary a:hover svg {
+  color: var(--velora-jade) !important;
+  fill: currentColor !important;
 }
 
 /* 5. ENQUIRE Button */
+.header__cta-desktop button,
 .header__cta-desktop .ui-button,
 .header__cta-desktop .ui-button--type-yellow {
   background: var(--velora-jade) !important;
-  border: 1.5px solid var(--velora-brass) !important;
-  color: var(--velora-white) !important;
+  border: 1px solid rgba(255, 255, 255, 0.38) !important;
+  color: #FCFBF7 !important;
   border-radius: 9999px !important;
-  padding: 12px 28px !important;
-  box-shadow: 0 6px 20px rgba(18, 60, 54, 0.25) !important;
+  padding: 8px 24px !important;
+  box-shadow: 0 4px 16px rgba(18, 60, 54, 0.25) !important;
   font-family: 'Inter', sans-serif !important;
   font-size: 0.8rem !important;
   font-weight: 600 !important;
-  letter-spacing: 0.14em !important;
+  letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
+  white-space: nowrap !important;
+  min-width: max-content !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   transition: all 0.25s ease !important;
 }
 
 .header__cta-desktop .ui-button:hover,
 .header__cta-desktop .ui-button--type-yellow:hover {
   background: var(--velora-teal) !important;
-  border-color: var(--velora-brass) !important;
-  color: var(--velora-white) !important;
+  color: #FCFBF7 !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 8px 24px rgba(18, 60, 54, 0.35) !important;
+  box-shadow: 0 6px 20px rgba(18, 60, 54, 0.35) !important;
 }
 
 /* ==========================================================================
