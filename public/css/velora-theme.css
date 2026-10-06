@@ -838,7 +838,15 @@ header.header.header--has-scrolled .header__secondary a,
 .header--has-scrolled-up .moodboard-button,
 .header--has-scrolled-up .header-user__btn,
 .header--has-scrolled-up .header__secondary button,
-.header--has-scrolled-up .header__secondary a {
+.header--has-scrolled-up .header__secondary a,
+header.header.header--has-scrolled .header__cta-desktop .ui-button,
+header.header.header--has-scrolled .header__cta-desktop .ui-button__text,
+.header--has-passed-hero .header__cta-desktop .ui-button,
+.header--has-passed-hero .header__cta-desktop .ui-button__text,
+.header--has-scrolled-down .header__cta-desktop .ui-button,
+.header--has-scrolled-down .header__cta-desktop .ui-button__text,
+.header--has-scrolled-up .header__cta-desktop .ui-button,
+.header--has-scrolled-up .header__cta-desktop .ui-button__text {
   color: #151817 !important;
 }
 
@@ -947,23 +955,27 @@ header.header.header--has-scrolled .header-user__btn:hover,
   transform: translateY(-1px) !important;
 }
 
-/* Enquire Button when Scrolled */
+/* Enquire Button when Scrolled: Liquid Glass Pill, ZERO GREEN */
 header.header.header--has-scrolled .header__cta-desktop .ui-button,
 .header--has-passed-hero .header__cta-desktop .ui-button,
 .header--has-scrolled-down .header__cta-desktop .ui-button,
 .header--has-scrolled-up .header__cta-desktop .ui-button {
-  background: #123C36 !important;
-  border: 1px solid #123C36 !important;
-  color: #FFFFFF !important;
-  box-shadow: 0 4px 16px rgba(18, 60, 54, 0.25) !important;
+  background: rgba(245, 241, 232, 0.72) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  color: #151817 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.7) !important;
 }
 
 header.header.header--has-scrolled .header__cta-desktop .ui-button:hover,
 .header--has-passed-hero .header__cta-desktop .ui-button:hover,
 .header--has-scrolled-down .header__cta-desktop .ui-button:hover,
 .header--has-scrolled-up .header__cta-desktop .ui-button:hover {
-  background: #1F5A50 !important;
-  color: #FFFFFF !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.28) !important;
+  color: #151817 !important;
+  transform: translateY(-1px) !important;
 }
 
 /* ==========================================================================
@@ -1196,38 +1208,6 @@ footer .footer a:hover {
   text-transform: uppercase;
 }
 
-/* Burger Menu Overlay */
-#burger-nav .nav__main-visor,
-.nav__main-visor,
-.main-navigation {
-  background-color: var(--velora-jade) !important;
-  color: var(--velora-white) !important;
-}
-
-.main-navigation__link {
-  color: var(--velora-white) !important;
-  font-family: 'Playfair Display', serif !important;
-  font-weight: 400 !important;
-  transition: color 0.3s ease !important;
-}
-
-.main-navigation__link:hover,
-.main-navigation__item--active .main-navigation__link {
-  color: var(--velora-brass) !important;
-}
-
-.sub-navigation {
-  background-color: rgba(18, 60, 54, 0.98) !important;
-  border-left: 1px solid rgba(168, 137, 85, 0.2) !important;
-}
-
-.sub-navigation__link {
-  color: var(--velora-sand) !important;
-}
-
-.sub-navigation__link:hover {
-  color: var(--velora-brass) !important;
-}
 
 /* General Buttons & Tags */
 .ui-button--type-yellow {
@@ -1269,11 +1249,11 @@ footer .footer a:hover {
 }
 
 
-/* === START LIQUID GLASS SIDE NAV === */
+/* ==========================================================================
+   BUN BUTTON: SLIDE-IN SIDE DRAWER (FROM LEFT) & TRANSPARENT BACKDROP OVERLAY
+   ========================================================================== */
 
-
-
-/* Hide the right-side bun icon completely across all viewports */
+/* Hide redundant right-side switch */
 .header__switch,
 button.header__switch,
 .header__switch:where(.astro-fmpwmwnp) {
@@ -1288,187 +1268,206 @@ button.header__switch,
   opacity: 0 !important;
 }
 
-/* 2. LIQUID GLASS SIDE NAVIGATION OVERLAY & VISOR */
+/* 1. Global Navigation Shell: Fixed Fullscreen Overlay Container */
 #burger-nav,
-.nav:where(.astro-6pgdx2k7) {
-  z-index: 9999 !important;
+.nav:where(.astro-6pgdx2k7),
+header.header #burger-nav {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  z-index: 99990 !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden !important;
+  background: transparent !important;
 }
 
+header.header.header--is-open #burger-nav,
+.header--is-open .nav:where(.astro-6pgdx2k7) {
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* 2. Backdrop Overlay Over Background: Transparent Dimmed Frosted Glass - ZERO GREEN */
 #burger-nav .nav__main-visor,
 .nav__main-visor,
 .nav__main-visor:where(.astro-6pgdx2k7) {
-  background: radial-gradient(135% 120% at 0% 0%, rgba(14, 40, 36, 0.72) 0%, rgba(8, 24, 20, 0.82) 50%, rgba(4, 14, 12, 0.92) 100%) !important;
-  backdrop-filter: blur(48px) saturate(220%) contrast(105%) !important;
-  -webkit-backdrop-filter: blur(48px) saturate(220%) contrast(105%) !important;
-  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.6) !important;
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  overflow: hidden !important;
+  background: rgba(10, 14, 18, 0.52) !important;
+  background-color: rgba(10, 14, 18, 0.52) !important;
+  backdrop-filter: blur(14px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
+  transition: none !important;
+  box-shadow: none !important;
+  pointer-events: auto !important;
 }
 
 #burger-nav .nav__main-visor::before,
-.nav__main-visor::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 40%, rgba(212, 175, 55, 0.05) 100%),
-    radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
-  z-index: 1;
+#burger-nav .nav__main-visor::after,
+.nav__main-visor:where(.astro-6pgdx2k7):after {
+  display: none !important;
 }
 
-/* 3. LIQUID GLASS SIDE DRAWER PANEL */
-.nav__inner:where(.astro-6pgdx2k7),
-#burger-nav .nav__inner {
+/* 3. The Slide-In Drawer Panel on the Left Side */
+#burger-nav .nav__inner,
+.nav__inner:where(.astro-6pgdx2k7) {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
+  width: min(440px, 86vw) !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  background: rgba(15, 19, 23, 0.88) !important;
+  backdrop-filter: blur(40px) saturate(190%) contrast(105%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(190%) contrast(105%) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 24px 0 70px rgba(0, 0, 0, 0.65), inset -1px 0 1px rgba(255, 255, 255, 0.14) !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: flex-start !important;
-  padding-block: 6.5rem 3rem !important;
-  padding-inline: max(1.5rem, 5vw) !important;
-  max-width: 620px !important;
-  width: 100% !important;
-  height: 100% !important;
+  padding: 85px clamp(20px, 4vw, 36px) clamp(24px, 4vh, 40px) clamp(20px, 4vw, 36px) !important;
+  box-sizing: border-box !important;
   overflow-y: auto !important;
   scrollbar-width: thin !important;
-  scrollbar-color: rgba(212, 175, 55, 0.3) transparent !important;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent !important;
+  z-index: 100000 !important;
+  transform: translateX(-100%) !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  pointer-events: auto !important;
 }
 
-.main-navigation:where(.astro-2b3woooi),
-#burger-nav .main-navigation {
-  width: 100% !important;
-  max-width: 560px !important;
-  grid-column: auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 1.25rem !important;
-  padding: 2.2rem !important;
-  border-radius: 24px !important;
-  background: rgba(255, 255, 255, 0.04) !important;
-  backdrop-filter: blur(28px) saturate(190%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 
-    0 30px 80px rgba(0, 0, 0, 0.55),
-    inset 0 1px 1px rgba(255, 255, 255, 0.25),
-    inset 0 -1px 1px rgba(0, 0, 0, 0.4),
-    0 0 40px rgba(18, 60, 54, 0.35) !important;
+header.header.header--is-open #burger-nav .nav__inner,
+.header--is-open .nav__inner:where(.astro-6pgdx2k7) {
+  transform: translateX(0) !important;
+}
+
+/* Bun button remains on top of drawer & turns white */
+header.header.header--is-open .header__switch-desktop {
+  z-index: 100005 !important;
   position: relative !important;
-  z-index: 5 !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
 }
 
-.main-navigation::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 45%;
-  border-radius: 24px 24px 0 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 100%);
-  pointer-events: none;
+header.header.header--is-open .header-burger__inner,
+header.header.header--is-open .header-burger__inner::before,
+header.header.header--is-open .header-burger__inner::after {
+  background-color: #FFFFFF !important;
 }
 
-/* 4. LIQUID GLASS SECTION LINKS (CLICK DIRECTLY TAKES TO THAT SECTION) */
-.main-navigation__list:where(.astro-2b3woooi),
-#burger-nav .main-navigation__list {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.55rem !important;
+/* 4. Menu Content & White Text Styling */
+#burger-nav .main-navigation,
+.main-navigation:where(.astro-2b3woooi) {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
   padding: 0 !important;
   margin: 0 !important;
   width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.6rem !important;
 }
 
-.main-navigation__item:where(.astro-2b3woooi),
-#burger-nav .main-navigation__item {
+#burger-nav .main-navigation::before {
+  display: none !important;
+}
+
+#burger-nav .main-navigation__list,
+.main-navigation__list:where(.astro-2b3woooi) {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  padding: 0 !important;
+  margin: 0 !important;
   width: 100% !important;
+  list-style: none !important;
+}
+
+#burger-nav .main-navigation__item,
+.main-navigation__item:where(.astro-2b3woooi) {
+  width: 100% !important;
+  margin: 0 !important;
   padding: 0 !important;
   display: block !important;
-  margin: 0 !important;
 }
 
-.main-navigation__link:where(.astro-2b3woooi),
-#burger-nav .main-navigation__link {
+/* Drawer Links: Pure White Luxury Typography */
+#burger-nav .main-navigation__link,
+.main-navigation__link:where(.astro-2b3woooi) {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
   width: 100% !important;
-  padding: 0.85rem 1.4rem !important;
-  border-radius: 14px !important;
-  background: rgba(255, 255, 255, 0.02) !important;
-  border: 1px solid rgba(255, 255, 255, 0.06) !important;
-  color: #ffffff !important;
+  padding: 12px 18px !important;
+  border-radius: 12px !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.07) !important;
+  color: #FFFFFF !important;
   font-family: 'Playfair Display', Georgia, serif !important;
-  font-size: clamp(1.35rem, 2.2vw, 1.85rem) !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.03em !important;
+  font-size: clamp(1.28rem, 2.2vw, 1.6rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.04em !important;
   text-transform: capitalize !important;
   text-decoration: none !important;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-sizing: border-box !important;
   cursor: pointer !important;
-  position: relative !important;
-  overflow: hidden !important;
+}
+
+#burger-nav .main-navigation__link-inner {
+  color: #FFFFFF !important;
+}
+
+#burger-nav .main-navigation__link:hover,
+#burger-nav .main-navigation__item--active .main-navigation__link {
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.32) !important;
+  color: #FFFFFF !important;
+  transform: translateX(6px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+}
+
+#burger-nav .main-navigation__link:hover .main-navigation__link-inner {
+  color: #FFFFFF !important;
+}
+
+#burger-nav .main-navigation__link::after {
+  content: "→" !important;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 300 !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  opacity: 0 !important;
+  transform: translateX(-4px) !important;
+  transition: all 0.25s ease !important;
+}
+
+#burger-nav .main-navigation__link:hover::after {
   opacity: 1 !important;
+  transform: translateX(0) !important;
+  color: #FFFFFF !important;
 }
 
-.main-navigation__link::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(212, 175, 55, 0.2) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.main-navigation__link:hover,
-.main-navigation__item--active .main-navigation__link {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border-color: rgba(212, 175, 55, 0.45) !important;
-  color: #A88955 !important;
-  transform: translateX(8px) !important;
-  box-shadow: 
-    0 10px 28px rgba(0, 0, 0, 0.4),
-    inset 0 1px 1px rgba(255, 255, 255, 0.3),
-    0 0 20px rgba(212, 175, 55, 0.2) !important;
-}
-
-.main-navigation__link:hover::before {
-  opacity: 1;
-}
-
-.main-navigation__link-inner {
-  position: relative;
-  z-index: 2;
-  transition: transform 0.3s ease;
-}
-
-.main-navigation__link::after {
-  content: "→";
-  font-family: 'Inter', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 300;
-  color: rgba(212, 175, 55, 0.6);
-  opacity: 0;
-  transform: translateX(-6px);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  z-index: 2;
-}
-
-.main-navigation__link:hover::after {
-  opacity: 1;
-  transform: translateX(0);
-  color: #A88955;
-}
-
-.header--has-active-item .main-navigation__link:where(.astro-2b3woooi) {
-  opacity: 1 !important;
-}
-
-/* 5. COMPLETELY HIDE SUBCATEGORIES ACCORDION / DRAWER */
+/* Suppress cluttered sub-navigation accordions & video media in side drawer */
 .sub-navigation,
 .sub-navigation--active,
 [id$="-submenu"],
-.sub-navigation:where(.astro-nw2ai343) {
+.main-navigation__media {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
@@ -1476,25 +1475,277 @@ button.header__switch,
   height: 0 !important;
   width: 0 !important;
   overflow: hidden !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
-/* 6. LIQUID GLASS QUICK LINKS & ENQUIRE */
+/* Quick links at bottom of drawer */
+#burger-nav .quick-links,
 .quick-links:where(.astro-ecl7ayfp),
 .nav__action:where(.astro-6pgdx2k7) {
-  margin-top: 1.25rem !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
-  padding-top: 1.25rem !important;
+  margin-top: 24px !important;
+  padding-top: 20px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
 }
 
-.quick-links__link {
-  color: rgba(255, 255, 255, 0.7) !important;
-  transition: color 0.25s ease !important;
+#burger-nav .quick-links__link,
+#burger-nav .quick-links__link-inner {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease, transform 0.2s ease !important;
 }
 
-.quick-links__link:hover {
-  color: #A88955 !important;
+#burger-nav .quick-links__link:hover,
+#burger-nav .quick-links__link:hover .quick-links__link-inner {
+  color: #FFFFFF !important;
+  transform: translateX(4px) !important;
 }
 
-/* === END LIQUID GLASS SIDE NAV === */
+/* ==========================================================================
+   RESPONSIVE LAYOUT & PERCENTAGE-BASED SIZING SYSTEM (DESKTOP, TABLET, PHONE)
+   ========================================================================== */
+
+/* Universal Fluid Box-Sizing & Overflow-X Protection */
+html {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  position: relative !important;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+/* Responsive Containers: Percentage Sizing */
+.site-wrapper,
+main,
+article,
+section,
+.section,
+.page {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.site-container,
+.container,
+.hero__content {
+  width: min(92%, 1440px) !important;
+  margin-inline: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Fluid Media */
+img, video, iframe {
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* Hero Search Bar Percentage Sizing */
+.hero-search__bar,
+.hero-search__form {
+  width: min(94vw, 1024px) !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Desktop Breakpoint (>= 1200px) */
+@media (min-width: 1200px) {
+  header.header {
+    padding: 16px clamp(16px, 2.5vw, 36px) !important;
+  }
+  .header__inner {
+    width: 100% !important;
+    gap: clamp(8px, 1vw, 16px) !important;
+  }
+  .header__list {
+    gap: clamp(5px, 0.6vw, 8px) !important;
+  }
+  .header__link,
+  .header__item a,
+  .header__item button {
+    height: 38px !important;
+    padding: 0 clamp(10px, 1vw, 16px) !important;
+    font-size: clamp(0.7rem, 0.76vw, 0.76rem) !important;
+  }
+}
+
+/* Tablet Landscape / Medium Desktop Breakpoint (1024px to 1199px) */
+@media (max-width: 1199px) and (min-width: 1024px) {
+  header.header {
+    padding: 14px 20px !important;
+  }
+  .header__logo.velora-logo-link {
+    margin-right: 10px !important;
+    padding: 6px 16px !important;
+  }
+  .header__list {
+    gap: 4px !important;
+  }
+  .header__link,
+  .header__item a,
+  .header__item button {
+    height: 36px !important;
+    padding: 0 10px !important;
+    font-size: 0.7rem !important;
+  }
+  .header__search,
+  .moodboard-button,
+  .header-user__btn,
+  .header__switch-desktop {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+  }
+  .header__cta-desktop .ui-button {
+    height: 36px !important;
+    padding: 0 16px !important;
+    font-size: 0.72rem !important;
+  }
+}
+
+/* Tablet Portrait Breakpoint (768px to 1023px) */
+@media (max-width: 1023px) and (min-width: 768px) {
+  header.header {
+    padding: 12px 18px !important;
+  }
+  .header__nav-outer {
+    max-width: calc(100vw - 320px) !important;
+    overflow-x: auto !important;
+    scrollbar-width: none !important;
+  }
+  .header__nav-outer::-webkit-scrollbar {
+    display: none !important;
+  }
+  .header__list {
+    gap: 4px !important;
+    flex-wrap: nowrap !important;
+  }
+  .header__link,
+  .header__item a,
+  .header__item button {
+    height: 36px !important;
+    padding: 0 9px !important;
+    font-size: 0.68rem !important;
+  }
+  .header__search,
+  .moodboard-button,
+  .header-user__btn,
+  .header__switch-desktop {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+  }
+  .header__cta-desktop .ui-button {
+    height: 36px !important;
+    padding: 0 14px !important;
+    font-size: 0.7rem !important;
+  }
+  /* Grids on tablet */
+  .grid-cols-3,
+  .grid-cols-4,
+  [class*="grid-cols-3"],
+  [class*="grid-cols-4"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: clamp(16px, 2.5vw, 24px) !important;
+  }
+}
+
+/* Mobile Phone Breakpoint (< 768px) */
+@media (max-width: 767px) {
+  header.header {
+    padding: 10px 14px !important;
+  }
+  /* On mobile phones, hide desktop word pill row; Bun button triggers full slide-in drawer */
+  .header__nav-outer {
+    display: none !important;
+  }
+  .header__logo.velora-logo-link {
+    margin-right: 0 !important;
+    padding: 5px 12px !important;
+  }
+  .velora-logo-wordmark {
+    font-size: 1.15rem !important;
+    letter-spacing: 0.16em !important;
+  }
+  .header__search,
+  .moodboard-button,
+  .header-user__btn,
+  .header__switch-desktop {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+  }
+  .header__search svg,
+  .moodboard-button svg,
+  .header-user__btn svg {
+    width: 16px !important;
+    height: 16px !important;
+    min-width: 16px !important;
+    min-height: 16px !important;
+  }
+  .header__cta-desktop .ui-button {
+    height: 34px !important;
+    line-height: 34px !important;
+    padding: 0 12px !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.08em !important;
+  }
+  /* Slide-in drawer on mobile phone */
+  #burger-nav .nav__inner {
+    width: min(340px, 88vw) !important;
+    padding: 75px 20px 28px 20px !important;
+  }
+  #burger-nav .main-navigation__link {
+    font-size: 1.25rem !important;
+    padding: 10px 14px !important;
+  }
+  /* Mobile card grids: 1 column */
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4,
+  [class*="grid-cols-"] {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  /* Responsive mobile headings */
+  h1, .type-mega, .type-giga {
+    font-size: clamp(2rem, 7.5vw, 2.8rem) !important;
+  }
+  h2, .type-h1 {
+    font-size: clamp(1.6rem, 5.5vw, 2.2rem) !important;
+  }
+  h3, .type-h2 {
+    font-size: clamp(1.3rem, 4.5vw, 1.7rem) !important;
+  }
+  .type-h3, .type-h4 {
+    font-size: clamp(1.1rem, 3.8vw, 1.35rem) !important;
+  }
+  /* Hero search on mobile */
+  .hero-search__form {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  .hero-search__bar .search-button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
