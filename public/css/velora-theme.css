@@ -3,7 +3,8 @@
    Private Worlds. Curated.
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+/* Local Fonts - zero external network requests */
+@import './fonts.css';
 
 :root {
   /* Brand Color Tokens */
@@ -363,22 +364,44 @@ button.header__switch-desktop {
   transition: color 0.25s ease !important;
 }
 
-/* 5. NAVIGATION GROUP CONTAINER */
+/* 5. NAVIGATION GROUP CONTAINER - PERMANENTLY VISIBLE ACROSS ALL SCROLL STATES */
 .header__nav-outer,
-header.header .header__nav-outer {
+header.header .header__nav-outer,
+header.header.header--has-scrolled .header__nav-outer,
+.header--has-scrolled-down .header__nav-outer,
+.header--has-scrolled-up .header__nav-outer,
+.header--has-passed-hero .header__nav-outer {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: none !important;
   overflow: visible !important;
 }
 
 .header__nav-inner,
 header.header .header__nav-inner,
 .header__nav,
-header.header .header__nav {
+header.header .header__nav,
+header.header.header--has-scrolled .header__nav,
+.header--has-scrolled-down .header__nav,
+.header--has-scrolled-up .header__nav,
+.header--has-passed-hero .header__nav {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: none !important;
   overflow: visible !important;
   width: auto !important;
 }
 
 .header__list,
-header.header .header__list {
+header.header .header__list,
+header.header.header--has-scrolled .header__list,
+.header--has-scrolled-down .header__list,
+.header--has-scrolled-up .header__list,
+.header--has-passed-hero .header__list {
   background: transparent !important;
   background-color: transparent !important;
   backdrop-filter: none !important;
@@ -390,12 +413,25 @@ header.header .header__list {
   display: flex !important;
   flex-wrap: nowrap !important;
   align-items: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
   gap: 8px !important;
 }
 
 .header__item,
-header.header .header__item {
+header.header .header__item,
+header.header.header--has-scrolled .header__item,
+.header--has-scrolled-down .header__item,
+.header--has-scrolled-up .header__item,
+.header--has-passed-hero .header__item,
+header.header .header__item:nth-child(n+6),
+header.header .header__item--charter-ai {
   display: inline-flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: none !important;
   align-items: center !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -404,6 +440,10 @@ header.header .header__item {
 
 /* INDIVIDUAL WORD PILLS */
 header.header .header__link,
+header.header.header--has-scrolled .header__link,
+.header--has-scrolled-down .header__link,
+.header--has-scrolled-up .header__link,
+.header--has-passed-hero .header__link,
 header.header .header__item a,
 header.header .header__item button,
 header.header .header__list a,
@@ -411,8 +451,9 @@ header.header .header__list button,
 .header__link,
 .header__item a,
 .header__item button {
+  height: 38px !important;
   border-radius: 9999px !important;
-  padding: 7px 16px !important;
+  padding: 0 16px !important;
   font-family: 'Inter', -apple-system, sans-serif !important;
   font-size: 0.76rem !important;
   font-weight: 600 !important;
@@ -421,26 +462,30 @@ header.header .header__list button,
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  line-height: 1.2 !important;
+  line-height: 38px !important;
   white-space: nowrap !important;
   text-decoration: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  box-sizing: border-box !important;
   transition: all 0.25s ease !important;
 }
 
-/* Charter AI Button */
+/* Charter AI Button in Navigation List */
 header.header .header__item--charter-ai .header__link,
 .header__link--charter-ai {
-  padding: 5px 12px !important;
-  gap: 6px !important;
+  padding: 0 14px !important;
+  gap: 7px !important;
 }
 
 .header__link-icon {
-  width: 18px !important;
-  height: 18px !important;
+  width: 17px !important;
+  height: 17px !important;
   object-fit: contain !important;
 }
 
-/* 6. SECONDARY ACTION ICONS */
+/* 6. SECONDARY ACTION ICONS CONTAINER */
 .header__secondary,
 header.header .header__secondary {
   background: transparent !important;
@@ -450,37 +495,162 @@ header.header .header__secondary {
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
+  margin: 0 !important;
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: flex-end !important;
   gap: 8px !important;
+  flex-shrink: 0 !important;
 }
 
-.header__secondary button,
-.header__secondary a,
-.header__secondary .moodboard-button {
+/* Hide duplicate Charter AI sparkle icon on the right */
+.header__secondary .header__charter-ai,
+button.header__charter-ai {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Search Button Pill */
+.header__search,
+button.header__search,
+header.header .header__search {
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
   border-radius: 50% !important;
-  width: 40px !important;
-  height: 40px !important;
-  min-width: 40px !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
   transition: all 0.25s ease !important;
 }
 
-.header__secondary svg {
-  width: 17px !important;
-  height: 17px !important;
-  transition: color 0.25s ease, stroke 0.25s ease, fill 0.25s ease !important;
+.header__search svg,
+.header__search .header__search-icon,
+header.header .header__search svg,
+header.header .header__search-icon {
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  display: block !important;
+  margin: auto !important;
+  box-sizing: border-box !important;
 }
 
-/* 7. ENQUIRE BUTTON */
+/* Moodboard / Bookmark Button Pill */
+.header__moodboard-button,
+div.header__moodboard-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.moodboard-button,
+a.moodboard-button,
+header.header .moodboard-button {
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  transition: all 0.25s ease !important;
+}
+
+.moodboard-button svg,
+.moodboard-button .moodboard-button__icon,
+header.header .moodboard-button svg {
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  display: block !important;
+  margin: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* User Account Button Pill */
+.header__user-button,
+div.header__user-button,
+.header-user,
+div.header-user {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.header-user__btn,
+button.header-user__btn,
+header.header .header-user__btn {
+  width: 38px !important;
+  height: 38px !important;
+  min-width: 38px !important;
+  min-height: 38px !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  transition: all 0.25s ease !important;
+}
+
+.header-user__btn svg,
+header.header .header-user__btn svg {
+  width: 18px !important;
+  height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  display: block !important;
+  margin: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* 7. ENQUIRE BUTTON PILL */
+.header__cta-desktop,
+div.header__cta-desktop {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-left: 6px !important;
+  padding-left: 0 !important;
+}
+
 .header__cta-desktop button,
 .header__cta-desktop .ui-button,
 .header__cta-desktop .ui-button--type-yellow {
+  height: 38px !important;
   border-radius: 9999px !important;
-  padding: 8px 22px !important;
+  padding: 0 22px !important;
   font-family: 'Inter', sans-serif !important;
   font-size: 0.76rem !important;
   font-weight: 600 !important;
@@ -491,6 +661,8 @@ header.header .header__secondary {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
+  line-height: 38px !important;
+  box-sizing: border-box !important;
   transition: all 0.25s ease !important;
 }
 
@@ -504,14 +676,27 @@ header.header:not(.header--has-scrolled) .header__item a,
 header.header:not(.header--has-scrolled) .header__item button,
 header.header:not(.header--has-scrolled) .header__list a,
 header.header:not(.header--has-scrolled) .header__list button,
+header.header:not(.header--has-scrolled) .header__search,
+header.header:not(.header--has-scrolled) .moodboard-button,
+header.header:not(.header--has-scrolled) .header-user__btn,
 header.header:not(.header--has-scrolled) .header__secondary button,
-header.header:not(.header--has-scrolled) .header__secondary a,
-header.header:not(.header--has-scrolled) .header__secondary svg,
-header.header:not(.header--has-scrolled) .moodboard-button svg,
-header.header:not(.header--has-scrolled) .moodboard-button {
+header.header:not(.header--has-scrolled) .header__secondary a {
   color: #FFFFFF !important;
-  fill: #FFFFFF !important;
+}
+
+header.header:not(.header--has-scrolled) .header__search svg,
+header.header:not(.header--has-scrolled) .header__search-icon,
+header.header:not(.header--has-scrolled) .moodboard-button svg,
+header.header:not(.header--has-scrolled) .moodboard-button__icon {
+  fill: none !important;
   stroke: #FFFFFF !important;
+  color: #FFFFFF !important;
+}
+
+header.header:not(.header--has-scrolled) .header-user__btn svg {
+  fill: #FFFFFF !important;
+  stroke: none !important;
+  color: #FFFFFF !important;
 }
 
 /* Bun Icon Lines: WHITE */
@@ -527,8 +712,9 @@ header.header:not(.header--has-scrolled) .header__switch-desktop,
 header.header:not(.header--has-scrolled) .header__link,
 header.header:not(.header--has-scrolled) .header__item a,
 header.header:not(.header--has-scrolled) .header__item button,
-header.header:not(.header--has-scrolled) .header__secondary button,
-header.header:not(.header--has-scrolled) .header__secondary a {
+header.header:not(.header--has-scrolled) .header__search,
+header.header:not(.header--has-scrolled) .moodboard-button,
+header.header:not(.header--has-scrolled) .header-user__btn {
   background: rgba(255, 255, 255, 0.14) !important;
   backdrop-filter: blur(14px) saturate(160%) !important;
   -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
@@ -540,8 +726,9 @@ header.header:not(.header--has-scrolled) .header__link:hover,
 header.header:not(.header--has-scrolled) .header__item a:hover,
 header.header:not(.header--has-scrolled) .header__logo.velora-logo-link:hover,
 header.header:not(.header--has-scrolled) .header__switch-desktop:hover,
-header.header:not(.header--has-scrolled) .header__secondary button:hover,
-header.header:not(.header--has-scrolled) .header__secondary a:hover {
+header.header:not(.header--has-scrolled) .header__search:hover,
+header.header:not(.header--has-scrolled) .moodboard-button:hover,
+header.header:not(.header--has-scrolled) .header-user__btn:hover {
   background: rgba(255, 255, 255, 0.28) !important;
   border-color: rgba(255, 255, 255, 0.65) !important;
   color: #FFFFFF !important;
@@ -572,47 +759,75 @@ header.header.header--has-scrolled .header__item a,
 header.header.header--has-scrolled .header__item button,
 header.header.header--has-scrolled .header__list a,
 header.header.header--has-scrolled .header__list button,
+header.header.header--has-scrolled .header__search,
+header.header.header--has-scrolled .moodboard-button,
+header.header.header--has-scrolled .header-user__btn,
 header.header.header--has-scrolled .header__secondary button,
 header.header.header--has-scrolled .header__secondary a,
-header.header.header--has-scrolled .header__secondary svg,
-header.header.header--has-scrolled .moodboard-button svg,
-header.header.header--has-scrolled .moodboard-button,
 .header--has-passed-hero .velora-logo-wordmark,
 .header--has-passed-hero .header__link,
 .header--has-passed-hero .header__item a,
 .header--has-passed-hero .header__item button,
 .header--has-passed-hero .header__list a,
 .header--has-passed-hero .header__list button,
+.header--has-passed-hero .header__search,
+.header--has-passed-hero .moodboard-button,
+.header--has-passed-hero .header-user__btn,
 .header--has-passed-hero .header__secondary button,
 .header--has-passed-hero .header__secondary a,
-.header--has-passed-hero .header__secondary svg,
-.header--has-passed-hero .moodboard-button svg,
-.header--has-passed-hero .moodboard-button,
 .header--has-scrolled-down .velora-logo-wordmark,
 .header--has-scrolled-down .header__link,
 .header--has-scrolled-down .header__item a,
 .header--has-scrolled-down .header__item button,
 .header--has-scrolled-down .header__list a,
 .header--has-scrolled-down .header__list button,
+.header--has-scrolled-down .header__search,
+.header--has-scrolled-down .moodboard-button,
+.header--has-scrolled-down .header-user__btn,
 .header--has-scrolled-down .header__secondary button,
 .header--has-scrolled-down .header__secondary a,
-.header--has-scrolled-down .header__secondary svg,
-.header--has-scrolled-down .moodboard-button svg,
-.header--has-scrolled-down .moodboard-button,
 .header--has-scrolled-up .velora-logo-wordmark,
 .header--has-scrolled-up .header__link,
 .header--has-scrolled-up .header__item a,
 .header--has-scrolled-up .header__item button,
 .header--has-scrolled-up .header__list a,
 .header--has-scrolled-up .header__list button,
+.header--has-scrolled-up .header__search,
+.header--has-scrolled-up .moodboard-button,
+.header--has-scrolled-up .header-user__btn,
 .header--has-scrolled-up .header__secondary button,
-.header--has-scrolled-up .header__secondary a,
-.header--has-scrolled-up .header__secondary svg,
-.header--has-scrolled-up .moodboard-button svg,
-.header--has-scrolled-up .moodboard-button {
+.header--has-scrolled-up .header__secondary a {
   color: #151817 !important;
-  fill: #151817 !important;
+}
+
+header.header.header--has-scrolled .header__search svg,
+header.header.header--has-scrolled .header__search-icon,
+header.header.header--has-scrolled .moodboard-button svg,
+header.header.header--has-scrolled .moodboard-button__icon,
+.header--has-passed-hero .header__search svg,
+.header--has-passed-hero .header__search-icon,
+.header--has-passed-hero .moodboard-button svg,
+.header--has-passed-hero .moodboard-button__icon,
+.header--has-scrolled-down .header__search svg,
+.header--has-scrolled-down .header__search-icon,
+.header--has-scrolled-down .moodboard-button svg,
+.header--has-scrolled-down .moodboard-button__icon,
+.header--has-scrolled-up .header__search svg,
+.header--has-scrolled-up .header__search-icon,
+.header--has-scrolled-up .moodboard-button svg,
+.header--has-scrolled-up .moodboard-button__icon {
+  fill: none !important;
   stroke: #151817 !important;
+  color: #151817 !important;
+}
+
+header.header.header--has-scrolled .header-user__btn svg,
+.header--has-passed-hero .header-user__btn svg,
+.header--has-scrolled-down .header-user__btn svg,
+.header--has-scrolled-up .header-user__btn svg {
+  fill: #151817 !important;
+  stroke: none !important;
+  color: #151817 !important;
 }
 
 /* Bun Icon Lines: BLACK */
@@ -637,29 +852,33 @@ header.header.header--has-scrolled .header__switch-desktop,
 header.header.header--has-scrolled .header__link,
 header.header.header--has-scrolled .header__item a,
 header.header.header--has-scrolled .header__item button,
-header.header.header--has-scrolled .header__secondary button,
-header.header.header--has-scrolled .header__secondary a,
+header.header.header--has-scrolled .header__search,
+header.header.header--has-scrolled .moodboard-button,
+header.header.header--has-scrolled .header-user__btn,
 .header--has-passed-hero .header__logo.velora-logo-link,
 .header--has-passed-hero .header__switch-desktop,
 .header--has-passed-hero .header__link,
 .header--has-passed-hero .header__item a,
 .header--has-passed-hero .header__item button,
-.header--has-passed-hero .header__secondary button,
-.header--has-passed-hero .header__secondary a,
+.header--has-passed-hero .header__search,
+.header--has-passed-hero .moodboard-button,
+.header--has-passed-hero .header-user__btn,
 .header--has-scrolled-down .header__logo.velora-logo-link,
 .header--has-scrolled-down .header__switch-desktop,
 .header--has-scrolled-down .header__link,
 .header--has-scrolled-down .header__item a,
 .header--has-scrolled-down .header__item button,
-.header--has-scrolled-down .header__secondary button,
-.header--has-scrolled-down .header__secondary a,
+.header--has-scrolled-down .header__search,
+.header--has-scrolled-down .moodboard-button,
+.header--has-scrolled-down .header-user__btn,
 .header--has-scrolled-up .header__logo.velora-logo-link,
 .header--has-scrolled-up .header__switch-desktop,
 .header--has-scrolled-up .header__link,
 .header--has-scrolled-up .header__item a,
 .header--has-scrolled-up .header__item button,
-.header--has-scrolled-up .header__secondary button,
-.header--has-scrolled-up .header__secondary a {
+.header--has-scrolled-up .header__search,
+.header--has-scrolled-up .moodboard-button,
+.header--has-scrolled-up .header-user__btn {
   background: rgba(245, 241, 232, 0.72) !important;
   backdrop-filter: blur(16px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
@@ -671,17 +890,18 @@ header.header.header--has-scrolled .header__link:hover,
 header.header.header--has-scrolled .header__item a:hover,
 header.header.header--has-scrolled .header__logo.velora-logo-link:hover,
 header.header.header--has-scrolled .header__switch-desktop:hover,
-header.header.header--has-scrolled .header__secondary button:hover,
-header.header.header--has-scrolled .header__secondary a:hover,
+header.header.header--has-scrolled .header__search:hover,
+header.header.header--has-scrolled .moodboard-button:hover,
+header.header.header--has-scrolled .header-user__btn:hover,
 .header--has-passed-hero .header__link:hover,
 .header--has-passed-hero .header__item a:hover,
 .header--has-passed-hero .header__logo.velora-logo-link:hover,
 .header--has-passed-hero .header__switch-desktop:hover,
-.header--has-passed-hero .header__secondary button:hover,
-.header--has-passed-hero .header__secondary a:hover {
+.header--has-passed-hero .header__search:hover,
+.header--has-passed-hero .moodboard-button:hover,
+.header--has-passed-hero .header-user__btn:hover {
   background: rgba(255, 255, 255, 0.95) !important;
   border-color: rgba(0, 0, 0, 0.28) !important;
-  color: #151817 !important;
   transform: translateY(-1px) !important;
 }
 

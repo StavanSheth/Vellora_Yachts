@@ -12,7 +12,7 @@ const e = "Moodboard",
           context: "charter",
           name: "Charter",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_4:5,w_480/v1761195728/Moodboard/moodboard-charter-portrait-04_jhefxl.jpg",
+            "/media/moodboard-charter-portrait-04_jh_9e1e09ccdb.jpg",
           aspectRatio: "4 / 5",
         },
         {
@@ -21,7 +21,7 @@ const e = "Moodboard",
           context: "charter",
           name: "Charter",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1761224461/Moodboard/moodboard-charter-square-15_graxqs.jpg",
+            "/media/moodboard-charter-square-15_grax_0fdf8814c9.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -30,7 +30,7 @@ const e = "Moodboard",
           context: "charter",
           name: "Charter",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_4:5,w_480/v1760344332/Moodboard/moodboard-charter-07_rjjqre.jpg",
+            "/media/moodboard-charter-07_rjjqre_8f4eaf75a8.jpg",
           aspectRatio: "4 / 5",
         },
         {
@@ -39,7 +39,7 @@ const e = "Moodboard",
           context: "charter",
           name: "Charter",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1760344328/Moodboard/moodboard-charter-02_zvnpvw.jpg",
+            "/media/moodboard-charter-02_zvnpvw_c35c5e92f3.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -48,7 +48,7 @@ const e = "Moodboard",
           context: "charter",
           name: "Charter",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480/v1760344329/Moodboard/moodboard-charter-03_wiy8sb.jpg",
+            "/media/moodboard-charter-03_wiy8sb_1dd167d0d1.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -57,7 +57,7 @@ const e = "Moodboard",
           context: "charter",
           name: "Charter",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_4:5,w_480/v1761195730/Moodboard/moodboard-charter-portrait-05_ag9bsc.jpg",
+            "/media/moodboard-charter-portrait-05_ag_c704def65a.jpg",
           aspectRatio: "4 / 5",
         },
         {
@@ -66,7 +66,7 @@ const e = "Moodboard",
           context: "charter",
           name: "Charter",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480/v1760344331/Moodboard/moodboard-charter-06_pwnnem.jpg",
+            "/media/moodboard-charter-06_pwnnem_fa5b26e303.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -75,7 +75,7 @@ const e = "Moodboard",
           context: "charter",
           name: "Charter",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_4:5,w_480/v1761195734/Moodboard/moodboard-charter-portrait-10_omheo7.jpg",
+            "/media/moodboard-charter-portrait-10_om_eea95b3d67.jpg",
           aspectRatio: "4 / 5",
         },
         {
@@ -84,7 +84,7 @@ const e = "Moodboard",
           context: "charter",
           name: "Charter",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480/v1760344363/Moodboard/moodboard-charter-09_flwdov.jpg",
+            "/media/moodboard-charter-09_flwdov_b595d08780.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -93,7 +93,7 @@ const e = "Moodboard",
           context: "charter",
           name: "Charter",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1761224460/Moodboard/moodboard-charter-square-05_hrsdad.jpg",
+            "/media/moodboard-charter-square-05_hrsd_1261eb3225.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -102,7 +102,7 @@ const e = "Moodboard",
           context: "charter",
           name: "Charter",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480//v1760344365/Moodboard/moodboard-charter-12_ywji34.jpg",
+            "/media/moodboard-charter-12_ywji34_aedaeaffc1.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -111,7 +111,7 @@ const e = "Moodboard",
           context: "charter",
           name: "Charter",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1761224461/Moodboard/moodboard-charter-square-09_eivel1.jpg",
+            "/media/moodboard-charter-square-09_eive_7017efe929.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -120,7 +120,7 @@ const e = "Moodboard",
           context: "charter",
           name: "Charter",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_4:5,w_480/v1761195727/Moodboard/moodboard-charter-portrait-11_nbl5rt.jpg",
+            "/media/moodboard-charter-portrait-11_nb_87fb3d08df.jpg",
           aspectRatio: "4 / 5",
         },
       ],
@@ -137,7 +137,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1761224463/Moodboard/moodboard-experiences-square-11_rizhvm.jpg",
+            "/media/moodboard-experiences-square-11__af935ba617.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -146,7 +146,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480/v1760344147/Moodboard/moodboard-experiences-03_bafutp.jpg",
+            "/media/moodboard-experiences-03_bafutp_216807572b.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -155,7 +155,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1761224464/Moodboard/moodboard-experiences-square-15_ndz5l9.jpg",
+            "/media/moodboard-experiences-square-15__704bfc2231.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -164,7 +164,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480/v1760344149/Moodboard/moodboard-experiences-06_t33ebe.jpg",
+            "/media/moodboard-experiences-06_t33ebe_00ed0c503d.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -173,7 +173,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_4:5,w_480/v1761195735/Moodboard/moodboard-charter-portrait-03_z3wxvl.jpg",
+            "/media/moodboard-charter-portrait-03_z3_e373d3d01a.jpg",
           aspectRatio: "4 / 5",
         },
         {
@@ -182,7 +182,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480/v1760344152/Moodboard/moodboard-experiences-09_pqjrrz.jpg",
+            "/media/moodboard-experiences-09_pqjrrz_d26bd679f9.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -191,7 +191,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_4:5,w_480/v1761195733/Moodboard/moodboard-experiences-portrait-03_gpc4lc.jpg",
+            "/media/moodboard-experiences-portrait-0_6f1cd2c3ea.jpg",
           aspectRatio: "4 / 5",
         },
         {
@@ -200,7 +200,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1761224461/Moodboard/moodboard-experiences-square-09_rmmzny.jpg",
+            "/media/moodboard-experiences-square-09__73f2ccf937.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -209,7 +209,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480/v1760344156/Moodboard/moodboard-experiences-12_thvegt.jpg",
+            "/media/moodboard-experiences-12_thvegt_982ec4338c.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -218,7 +218,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_4:5,w_480/v1760344157/Moodboard/moodboard-experiences-13_i1fb4g.jpg",
+            "/media/moodboard-experiences-13_i1fb4g_d3b71dc5d4.jpg",
           aspectRatio: "4 / 5",
         },
         {
@@ -227,7 +227,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1761224461/Moodboard/moodboard-experiences-square-07_fszwcq.jpg",
+            "/media/moodboard-experiences-square-07__9c081078bf.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -236,7 +236,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480/v1760344171/Moodboard/moodboard-experiences-15_f8krre.jpg",
+            "/media/moodboard-experiences-15_f8krre_555794d6bb.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -245,7 +245,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_4:5,w_480/v1761195727/Moodboard/moodboard-experiences-portrait-01_c3ynwk.jpg",
+            "/media/moodboard-experiences-portrait-0_11b20d5744.jpg",
           aspectRatio: "4 / 5",
         },
         {
@@ -254,7 +254,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1760344313/Moodboard/moodboard-experiences-17_l8ymsy.jpg",
+            "/media/moodboard-experiences-17_l8ymsy_722a357353.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -263,7 +263,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480/v1760344314/Moodboard/moodboard-experiences-18_mw3dd2.jpg",
+            "/media/moodboard-experiences-18_mw3dd2_66a014cde9.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -272,7 +272,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_4:5,w_480/v1761195736/Moodboard/moodboard-experiences-portrait-08_lizbgk.jpg",
+            "/media/moodboard-experiences-portrait-0_699a8ca649.jpg",
           aspectRatio: "4 / 5",
         },
         {
@@ -281,7 +281,7 @@ const e = "Moodboard",
           context: "experience",
           name: "Experiences",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1760344315/Moodboard/moodboard-experiences-20_icyckv.jpg",
+            "/media/moodboard-experiences-20_icyckv_156da6bca9.jpg",
           aspectRatio: "1 / 1",
         },
       ],
@@ -298,7 +298,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_4:5,w_480/v1760343867/Moodboard/moodboard-purchase-01_r2snid.jpg",
+            "/media/moodboard-purchase-01_r2snid_2befa6aa2a.jpg",
           aspectRatio: "4 / 5",
         },
         {
@@ -307,7 +307,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1760343867/Moodboard/moodboard-purchase-02_cpzk4x.jpg",
+            "/media/moodboard-purchase-02_cpzk4x_6fcb86f990.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -316,7 +316,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480/v1760343867/Moodboard/moodboard-purchase-03_w2bghp.jpg",
+            "/media/moodboard-purchase-03_w2bghp_8911db53e3.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -325,7 +325,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_4:5,w_480/v1760343867/Moodboard/moodboard-purchase-04_t7mkfr.jpg",
+            "/media/moodboard-purchase-04_t7mkfr_0d8cb1c48c.jpg",
           aspectRatio: "4 / 5",
         },
         {
@@ -334,7 +334,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1760343867/Moodboard/moodboard-purchase-05_bwl9p0.jpg",
+            "/media/moodboard-purchase-05_bwl9p0_6a1750f4df.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -343,7 +343,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480/v1760343867/Moodboard/moodboard-purchase-06_ohlxzm.jpg",
+            "/media/moodboard-purchase-06_ohlxzm_022f4c608b.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -352,7 +352,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1761224464/Moodboard/moodboard-purchase-square-02_pvwl1z.jpg",
+            "/media/moodboard-purchase-square-02_pvw_ff36f3f304.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -361,7 +361,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480/v1760343867/Moodboard/moodboard-purchase-09_lw7zd6.jpg",
+            "/media/moodboard-purchase-09_lw7zd6_16ed9957d8.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -370,7 +370,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1760343867/Moodboard/moodboard-purchase-08_lgxx8b.jpg",
+            "/media/moodboard-purchase-08_lgxx8b_70829ae91e.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -379,7 +379,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_4:5,w_480/v1760343867/Moodboard/moodboard-purchase-10_ihmzih.jpg",
+            "/media/moodboard-purchase-10_ihmzih_366710fc07.jpg",
           aspectRatio: "4 / 5",
         },
         {
@@ -388,7 +388,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1760343867/Moodboard/moodboard-purchase-11_wk38gj.jpg",
+            "/media/moodboard-purchase-11_wk38gj_ebc8876a32.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -397,7 +397,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480/v1760343867/Moodboard/moodboard-purchase-12_mxppol.jpg",
+            "/media/moodboard-purchase-12_mxppol_a64b52d0e6.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -406,7 +406,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1761224464/Moodboard/moodboard-purchase-square-01_wzwgkk.jpg",
+            "/media/moodboard-purchase-square-01_wzw_d636ff525e.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -415,7 +415,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_4:5,w_480/v1760343877/Moodboard/moodboard-purchase-16_vq2dwi.jpg",
+            "/media/moodboard-purchase-16_vq2dwi_d1b5622e4d.jpg",
           aspectRatio: "4 / 5",
         },
         {
@@ -424,7 +424,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1760343867/Moodboard/moodboard-purchase-14_j6ghzv.jpg",
+            "/media/moodboard-purchase-14_j6ghzv_16624456bf.jpg",
           aspectRatio: "1 / 1",
         },
         {
@@ -433,7 +433,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_480/v1760343867/Moodboard/moodboard-purchase-15_af36zr.jpg",
+            "/media/moodboard-purchase-15_af36zr_be3441ceca.jpg",
           aspectRatio: "3 / 2",
         },
         {
@@ -442,7 +442,7 @@ const e = "Moodboard",
           context: "purchase",
           name: "Purchase",
           source:
-            "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_1:1,w_480/v1760343880/Moodboard/moodboard-purchase-17_z8tkv7.jpg",
+            "/media/moodboard-purchase-17_z8tkv7_ec1febcf86.jpg",
           aspectRatio: "1 / 1",
         },
       ],

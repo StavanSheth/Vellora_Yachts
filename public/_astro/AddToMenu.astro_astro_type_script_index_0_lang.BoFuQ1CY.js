@@ -52,7 +52,7 @@ document.addEventListener("alpine:init", () => {
       },
       getBoardImageUrl(e) {
         if (!e?.items?.[0]?.source)
-          return "https://cdn-image.y.co/upload/f_auto,q_70,c_fill,ar_3:2,w_120/v1705592469/placeholder-yacht_h3ehgj.jpg";
+          return "/media/placeholder-yacht_h3ehgj_348da4aad9.jpg";
         const o = e.items.filter((r) => r?.source);
         return s(o[o.length - 1]?.source ?? "", { ar: "3:2" }, 120);
       },
