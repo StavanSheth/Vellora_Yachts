@@ -168,7 +168,7 @@ body, p, span, a, button, input, textarea,
 }
 
 /* ==========================================================================
-   Navigation Bar: Low-Opacity Transparent Liquid Glass Around Individual Words
+   Navigation Bar: Low-Opacity Transparent Liquid Glass & Dynamic Scroll Colors
    ========================================================================== */
 
 /* Entire Navbar Container is 100% Transparent */
@@ -197,68 +197,180 @@ header.header:not(.header--has-scrolled),
   padding-top: 14px !important;
   padding-bottom: 14px !important;
   align-items: center !important;
+  justify-content: space-between !important;
 }
 
-/* 1. Transparent Liquid Glass Around Logo */
-.header__logo.velora-logo-link {
-  background: rgba(255, 255, 255, 0.16) !important;
-  backdrop-filter: blur(14px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.38) !important;
-  border-radius: 9999px !important;
-  padding: 8px 22px !important;
-  margin-inline-start: 0 !important;
-  margin-right: 18px !important;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+.header__primary {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+}
+
+/* 1. HIDE TAGLINE BELOW LOGO IN NAVBAR */
+.header .velora-logo-tagline,
+.velora-logo-link .velora-logo-tagline,
+.header__logo .velora-logo-tagline,
+header.header .velora-logo-tagline,
+.header__primary .velora-logo-tagline {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  overflow: hidden !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+/* 2. REMOVE UNNECESSARY BACK BUTTON (< / > ICON) COMPLETELY */
+.header__nav-back-btn,
+button.header__nav-back-btn,
+.header .header__nav-back-btn,
+header.header .header__nav-back-btn,
+.header--has-active-item .header__nav-back-btn,
+.header__primary .header__nav-back-btn,
+[class*="header__nav-back-btn"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+  overflow: hidden !important;
+}
+
+/* Hide duplicate mobile-switch button when desktop bun icon is present */
+.header__switch,
+button.header__switch,
+.header__switch:where(.astro-fmpwmwnp) {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+}
+
+/* 3. BUN (HAMBURGER) ICON ON THE LEFT */
+.header__switch-desktop,
+button.header__switch-desktop {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  border-radius: 50% !important;
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
+  margin-right: 14px !important;
+  margin-inline-start: 0 !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  position: relative !important;
   transition: all 0.25s ease !important;
 }
 
-.header__logo.velora-logo-link:hover {
-  background: rgba(255, 255, 255, 0.3) !important;
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.7) !important;
+.header__switch-desktop .header-burger,
+.header__switch-desktop [x-data="burger"] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 20px !important;
+  height: 20px !important;
+  padding: 0 !important;
+  position: relative !important;
 }
 
-/* Logo Text - ALWAYS Consistent Velora Shade Color */
-.velora-logo-wordmark,
+.header__switch-desktop .header-burger__inner {
+  display: block !important;
+  position: relative !important;
+  width: 18px !important;
+  height: 2px !important;
+  border-radius: 2px !important;
+  transition: background-color 0.25s ease !important;
+}
+
+.header__switch-desktop .header-burger__inner::before,
+.header__switch-desktop .header-burger__inner::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: 0 !important;
+  width: 18px !important;
+  height: 2px !important;
+  border-radius: 2px !important;
+  transition: background-color 0.25s ease, transform 0.25s ease, top 0.25s ease !important;
+}
+
+.header__switch-desktop .header-burger__inner::before {
+  top: -6px !important;
+}
+
+.header__switch-desktop .header-burger__inner::after {
+  top: 6px !important;
+}
+
+.header-burger--is-open .header-burger__inner {
+  background-color: transparent !important;
+}
+
+.header-burger--is-open .header-burger__inner::before {
+  top: 0 !important;
+  transform: rotate(45deg) !important;
+}
+
+.header-burger--is-open .header-burger__inner::after {
+  top: 0 !important;
+  transform: rotate(-45deg) !important;
+}
+
+/* 4. LOGO PILL */
+.header__logo.velora-logo-link {
+  border-radius: 9999px !important;
+  padding: 7px 22px !important;
+  margin-inline-start: 0 !important;
+  margin-right: 18px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+  transition: all 0.25s ease !important;
+}
+
 .header .velora-logo-wordmark,
-.header--has-scrolled .velora-logo-wordmark,
-header.header:not(.header--has-scrolled) .velora-logo-wordmark {
-  color: var(--velora-jade) !important;
+.velora-logo-link .velora-logo-wordmark {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 1.38rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.20em !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: color 0.25s ease !important;
 }
 
-.velora-logo-tagline,
-.header .velora-logo-tagline,
-.header--has-scrolled .velora-logo-tagline,
-header.header:not(.header--has-scrolled) .velora-logo-tagline {
-  color: var(--velora-jade) !important;
-  opacity: 0.85 !important;
-}
-
-/* 2. Controls Visibility */
-.header__switch-desktop,
-.header__switch,
-.header__nav-back-btn,
-button.header__nav-back-btn,
-button.header__switch,
-button.header__switch-desktop {
-  display: none !important;
-}
-
-/* 3. Navigation Group Container: 100% Transparent (NO group capsule) */
+/* 5. NAVIGATION GROUP CONTAINER */
 .header__nav-outer,
 header.header .header__nav-outer {
   overflow: visible !important;
 }
 
 .header__nav-inner,
-header.header .header__nav-inner {
-  overflow: visible !important;
-  width: auto !important;
-}
-
+header.header .header__nav-inner,
 .header__nav,
 header.header .header__nav {
   overflow: visible !important;
@@ -278,7 +390,7 @@ header.header .header__list {
   display: flex !important;
   flex-wrap: nowrap !important;
   align-items: center !important;
-  gap: 7px !important;
+  gap: 8px !important;
 }
 
 .header__item,
@@ -290,54 +402,45 @@ header.header .header__item {
   flex-shrink: 0 !important;
 }
 
-/* Individual Words: Low-Opacity Transparent Liquid Glass Badge */
+/* INDIVIDUAL WORD PILLS */
 header.header .header__link,
 header.header .header__item a,
 header.header .header__item button,
 header.header .header__list a,
 header.header .header__list button,
-header.header:not(.header--has-scrolled) .header__link,
-header.header:not(.header--has-scrolled) .header__item a,
-header.header:not(.header--has-scrolled) .header__item button,
-.header--has-scrolled .header__link,
-.header--has-scrolled .header__item a,
-.header--has-scrolled .header__item button,
 .header__link,
 .header__item a,
 .header__item button {
-  background: rgba(255, 255, 255, 0.16) !important;
-  backdrop-filter: blur(14px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.38) !important;
   border-radius: 9999px !important;
-  padding: 7px 15px !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
-  font-family: 'Inter', sans-serif !important;
-  font-size: 0.78rem !important;
+  padding: 7px 16px !important;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-size: 0.76rem !important;
   font-weight: 600 !important;
-  letter-spacing: 0.06em !important;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
-  color: var(--velora-jade) !important;
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
   line-height: 1.2 !important;
   white-space: nowrap !important;
+  text-decoration: none !important;
   transition: all 0.25s ease !important;
 }
 
-/* Hover: subtle glass illumination, KEEPING identical text color throughout */
-header.header .header__link:hover,
-header.header .header__item a:hover,
-header.header .header__item button:hover,
-.header__link:hover {
-  background: rgba(255, 255, 255, 0.32) !important;
-  border-color: rgba(255, 255, 255, 0.65) !important;
-  color: var(--velora-jade) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09), inset 0 1px 1px rgba(255, 255, 255, 0.7) !important;
+/* Charter AI Button */
+header.header .header__item--charter-ai .header__link,
+.header__link--charter-ai {
+  padding: 5px 12px !important;
+  gap: 6px !important;
 }
 
-/* 4. Secondary Actions: Transparent Container with Individual Glass Buttons */
+.header__link-icon {
+  width: 18px !important;
+  height: 18px !important;
+  object-fit: contain !important;
+}
+
+/* 6. SECONDARY ACTION ICONS */
 .header__secondary,
 header.header .header__secondary {
   background: transparent !important;
@@ -352,66 +455,34 @@ header.header .header__secondary {
   gap: 8px !important;
 }
 
-/* Individual Secondary Icon Buttons: Circular Transparent Liquid Glass */
 .header__secondary button,
 .header__secondary a,
 .header__secondary .moodboard-button {
-  background: rgba(255, 255, 255, 0.16) !important;
-  backdrop-filter: blur(14px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.38) !important;
   border-radius: 50% !important;
-  width: 42px !important;
-  height: 42px !important;
-  min-width: 42px !important;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
-  color: var(--velora-jade) !important;
+  padding: 0 !important;
   transition: all 0.25s ease !important;
 }
 
-.header__secondary button:hover,
-.header__secondary a:hover,
-.header__secondary .moodboard-button:hover {
-  background: rgba(255, 255, 255, 0.32) !important;
-  border-color: rgba(255, 255, 255, 0.65) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09) !important;
+.header__secondary svg {
+  width: 17px !important;
+  height: 17px !important;
+  transition: color 0.25s ease, stroke 0.25s ease, fill 0.25s ease !important;
 }
 
-/* Icons - Consistent Velora Jade throughout */
-.header__search-icon,
-.moodboard-button__icon,
-.header-user__btn,
-.header__charter-ai-icon,
-.header__secondary svg,
-header.header:not(.header--has-scrolled) .header__secondary svg,
-.header--has-scrolled .header__secondary svg {
-  color: var(--velora-jade) !important;
-  fill: currentColor !important;
-  transition: color 0.2s ease !important;
-}
-
-.header__secondary button:hover svg,
-.header__secondary a:hover svg {
-  color: var(--velora-jade) !important;
-  fill: currentColor !important;
-}
-
-/* 5. ENQUIRE Button */
+/* 7. ENQUIRE BUTTON */
 .header__cta-desktop button,
 .header__cta-desktop .ui-button,
 .header__cta-desktop .ui-button--type-yellow {
-  background: var(--velora-jade) !important;
-  border: 1px solid rgba(255, 255, 255, 0.38) !important;
-  color: #FCFBF7 !important;
   border-radius: 9999px !important;
-  padding: 8px 24px !important;
-  box-shadow: 0 4px 16px rgba(18, 60, 54, 0.25) !important;
+  padding: 8px 22px !important;
   font-family: 'Inter', sans-serif !important;
-  font-size: 0.8rem !important;
+  font-size: 0.76rem !important;
   font-weight: 600 !important;
   letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
@@ -423,12 +494,214 @@ header.header:not(.header--has-scrolled) .header__secondary svg,
   transition: all 0.25s ease !important;
 }
 
-.header__cta-desktop .ui-button:hover,
-.header__cta-desktop .ui-button--type-yellow:hover {
-  background: var(--velora-teal) !important;
-  color: #FCFBF7 !important;
+/* ==========================================================================
+   STATE A: INITIAL / UNSCROLLED STATE (OVER HERO / VIDEO) -> TEXT & ICONS ARE WHITE
+   ========================================================================== */
+
+header.header:not(.header--has-scrolled) .velora-logo-wordmark,
+header.header:not(.header--has-scrolled) .header__link,
+header.header:not(.header--has-scrolled) .header__item a,
+header.header:not(.header--has-scrolled) .header__item button,
+header.header:not(.header--has-scrolled) .header__list a,
+header.header:not(.header--has-scrolled) .header__list button,
+header.header:not(.header--has-scrolled) .header__secondary button,
+header.header:not(.header--has-scrolled) .header__secondary a,
+header.header:not(.header--has-scrolled) .header__secondary svg,
+header.header:not(.header--has-scrolled) .moodboard-button svg,
+header.header:not(.header--has-scrolled) .moodboard-button {
+  color: #FFFFFF !important;
+  fill: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+
+/* Bun Icon Lines: WHITE */
+header.header:not(.header--has-scrolled) .header-burger__inner,
+header.header:not(.header--has-scrolled) .header-burger__inner::before,
+header.header:not(.header--has-scrolled) .header-burger__inner::after {
+  background-color: #FFFFFF !important;
+}
+
+/* Liquid Glass Capsules: Subtle Light Frost */
+header.header:not(.header--has-scrolled) .header__logo.velora-logo-link,
+header.header:not(.header--has-scrolled) .header__switch-desktop,
+header.header:not(.header--has-scrolled) .header__link,
+header.header:not(.header--has-scrolled) .header__item a,
+header.header:not(.header--has-scrolled) .header__item button,
+header.header:not(.header--has-scrolled) .header__secondary button,
+header.header:not(.header--has-scrolled) .header__secondary a {
+  background: rgba(255, 255, 255, 0.14) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+}
+
+header.header:not(.header--has-scrolled) .header__link:hover,
+header.header:not(.header--has-scrolled) .header__item a:hover,
+header.header:not(.header--has-scrolled) .header__logo.velora-logo-link:hover,
+header.header:not(.header--has-scrolled) .header__switch-desktop:hover,
+header.header:not(.header--has-scrolled) .header__secondary button:hover,
+header.header:not(.header--has-scrolled) .header__secondary a:hover {
+  background: rgba(255, 255, 255, 0.28) !important;
+  border-color: rgba(255, 255, 255, 0.65) !important;
+  color: #FFFFFF !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 6px 20px rgba(18, 60, 54, 0.35) !important;
+}
+
+/* Enquire Button at Top */
+header.header:not(.header--has-scrolled) .header__cta-desktop .ui-button {
+  background: rgba(18, 60, 54, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+}
+
+header.header:not(.header--has-scrolled) .header__cta-desktop .ui-button:hover {
+  background: rgba(31, 90, 80, 0.95) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ==========================================================================
+   STATE B: SCROLLED STATE -> TEXT, LOGO, ICONS & BUN ICON BECOME BLACK
+   ========================================================================== */
+
+header.header.header--has-scrolled .velora-logo-wordmark,
+header.header.header--has-scrolled .header__link,
+header.header.header--has-scrolled .header__item a,
+header.header.header--has-scrolled .header__item button,
+header.header.header--has-scrolled .header__list a,
+header.header.header--has-scrolled .header__list button,
+header.header.header--has-scrolled .header__secondary button,
+header.header.header--has-scrolled .header__secondary a,
+header.header.header--has-scrolled .header__secondary svg,
+header.header.header--has-scrolled .moodboard-button svg,
+header.header.header--has-scrolled .moodboard-button,
+.header--has-passed-hero .velora-logo-wordmark,
+.header--has-passed-hero .header__link,
+.header--has-passed-hero .header__item a,
+.header--has-passed-hero .header__item button,
+.header--has-passed-hero .header__list a,
+.header--has-passed-hero .header__list button,
+.header--has-passed-hero .header__secondary button,
+.header--has-passed-hero .header__secondary a,
+.header--has-passed-hero .header__secondary svg,
+.header--has-passed-hero .moodboard-button svg,
+.header--has-passed-hero .moodboard-button,
+.header--has-scrolled-down .velora-logo-wordmark,
+.header--has-scrolled-down .header__link,
+.header--has-scrolled-down .header__item a,
+.header--has-scrolled-down .header__item button,
+.header--has-scrolled-down .header__list a,
+.header--has-scrolled-down .header__list button,
+.header--has-scrolled-down .header__secondary button,
+.header--has-scrolled-down .header__secondary a,
+.header--has-scrolled-down .header__secondary svg,
+.header--has-scrolled-down .moodboard-button svg,
+.header--has-scrolled-down .moodboard-button,
+.header--has-scrolled-up .velora-logo-wordmark,
+.header--has-scrolled-up .header__link,
+.header--has-scrolled-up .header__item a,
+.header--has-scrolled-up .header__item button,
+.header--has-scrolled-up .header__list a,
+.header--has-scrolled-up .header__list button,
+.header--has-scrolled-up .header__secondary button,
+.header--has-scrolled-up .header__secondary a,
+.header--has-scrolled-up .header__secondary svg,
+.header--has-scrolled-up .moodboard-button svg,
+.header--has-scrolled-up .moodboard-button {
+  color: #151817 !important;
+  fill: #151817 !important;
+  stroke: #151817 !important;
+}
+
+/* Bun Icon Lines: BLACK */
+header.header.header--has-scrolled .header-burger__inner,
+header.header.header--has-scrolled .header-burger__inner::before,
+header.header.header--has-scrolled .header-burger__inner::after,
+.header--has-passed-hero .header-burger__inner,
+.header--has-passed-hero .header-burger__inner::before,
+.header--has-passed-hero .header-burger__inner::after,
+.header--has-scrolled-down .header-burger__inner,
+.header--has-scrolled-down .header-burger__inner::before,
+.header--has-scrolled-down .header-burger__inner::after,
+.header--has-scrolled-up .header-burger__inner,
+.header--has-scrolled-up .header-burger__inner::before,
+.header--has-scrolled-up .header-burger__inner::after {
+  background-color: #151817 !important;
+}
+
+/* Liquid Glass Capsules when Scrolled */
+header.header.header--has-scrolled .header__logo.velora-logo-link,
+header.header.header--has-scrolled .header__switch-desktop,
+header.header.header--has-scrolled .header__link,
+header.header.header--has-scrolled .header__item a,
+header.header.header--has-scrolled .header__item button,
+header.header.header--has-scrolled .header__secondary button,
+header.header.header--has-scrolled .header__secondary a,
+.header--has-passed-hero .header__logo.velora-logo-link,
+.header--has-passed-hero .header__switch-desktop,
+.header--has-passed-hero .header__link,
+.header--has-passed-hero .header__item a,
+.header--has-passed-hero .header__item button,
+.header--has-passed-hero .header__secondary button,
+.header--has-passed-hero .header__secondary a,
+.header--has-scrolled-down .header__logo.velora-logo-link,
+.header--has-scrolled-down .header__switch-desktop,
+.header--has-scrolled-down .header__link,
+.header--has-scrolled-down .header__item a,
+.header--has-scrolled-down .header__item button,
+.header--has-scrolled-down .header__secondary button,
+.header--has-scrolled-down .header__secondary a,
+.header--has-scrolled-up .header__logo.velora-logo-link,
+.header--has-scrolled-up .header__switch-desktop,
+.header--has-scrolled-up .header__link,
+.header--has-scrolled-up .header__item a,
+.header--has-scrolled-up .header__item button,
+.header--has-scrolled-up .header__secondary button,
+.header--has-scrolled-up .header__secondary a {
+  background: rgba(245, 241, 232, 0.72) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), inset 0 1px 1px rgba(255, 255, 255, 0.7) !important;
+}
+
+header.header.header--has-scrolled .header__link:hover,
+header.header.header--has-scrolled .header__item a:hover,
+header.header.header--has-scrolled .header__logo.velora-logo-link:hover,
+header.header.header--has-scrolled .header__switch-desktop:hover,
+header.header.header--has-scrolled .header__secondary button:hover,
+header.header.header--has-scrolled .header__secondary a:hover,
+.header--has-passed-hero .header__link:hover,
+.header--has-passed-hero .header__item a:hover,
+.header--has-passed-hero .header__logo.velora-logo-link:hover,
+.header--has-passed-hero .header__switch-desktop:hover,
+.header--has-passed-hero .header__secondary button:hover,
+.header--has-passed-hero .header__secondary a:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(0, 0, 0, 0.28) !important;
+  color: #151817 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Enquire Button when Scrolled */
+header.header.header--has-scrolled .header__cta-desktop .ui-button,
+.header--has-passed-hero .header__cta-desktop .ui-button,
+.header--has-scrolled-down .header__cta-desktop .ui-button,
+.header--has-scrolled-up .header__cta-desktop .ui-button {
+  background: #123C36 !important;
+  border: 1px solid #123C36 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 16px rgba(18, 60, 54, 0.25) !important;
+}
+
+header.header.header--has-scrolled .header__cta-desktop .ui-button:hover,
+.header--has-passed-hero .header__cta-desktop .ui-button:hover,
+.header--has-scrolled-down .header__cta-desktop .ui-button:hover,
+.header--has-scrolled-up .header__cta-desktop .ui-button:hover {
+  background: #1F5A50 !important;
+  color: #FFFFFF !important;
 }
 
 /* ==========================================================================
@@ -632,8 +905,8 @@ footer .footer a:hover {
   letter-spacing: 0.1em !important;
 }
 
-/* Wordmark Logo */
-.velora-logo-container {
+/* Wordmark Logo - Footer / Non-Header */
+.footer .velora-logo-container {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
@@ -642,16 +915,16 @@ footer .footer a:hover {
   line-height: 1;
 }
 
-.velora-logo-wordmark {
+.footer .velora-logo-wordmark {
   font-family: 'Playfair Display', serif !important;
   font-size: 1.65rem;
   font-weight: 600;
   letter-spacing: 0.22em;
-  color: var(--velora-jade) !important;
+  color: var(--velora-white) !important;
   transition: color 0.3s ease;
 }
 
-.velora-logo-tagline {
+.footer .velora-logo-tagline {
   font-family: 'Inter', sans-serif !important;
   font-size: 0.45rem;
   letter-spacing: 0.32em;
@@ -732,3 +1005,234 @@ footer .footer a:hover {
 .section--primary h4, .section--primary h5, .section--primary h6 {
   color: var(--velora-jade) !important;
 }
+
+
+/* === START LIQUID GLASS SIDE NAV === */
+
+
+
+/* Hide the right-side bun icon completely across all viewports */
+.header__switch,
+button.header__switch,
+.header__switch:where(.astro-fmpwmwnp) {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0 !important;
+}
+
+/* 2. LIQUID GLASS SIDE NAVIGATION OVERLAY & VISOR */
+#burger-nav,
+.nav:where(.astro-6pgdx2k7) {
+  z-index: 9999 !important;
+}
+
+#burger-nav .nav__main-visor,
+.nav__main-visor,
+.nav__main-visor:where(.astro-6pgdx2k7) {
+  background: radial-gradient(135% 120% at 0% 0%, rgba(14, 40, 36, 0.72) 0%, rgba(8, 24, 20, 0.82) 50%, rgba(4, 14, 12, 0.92) 100%) !important;
+  backdrop-filter: blur(48px) saturate(220%) contrast(105%) !important;
+  -webkit-backdrop-filter: blur(48px) saturate(220%) contrast(105%) !important;
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.6) !important;
+}
+
+#burger-nav .nav__main-visor::before,
+.nav__main-visor::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 40%, rgba(212, 175, 55, 0.05) 100%),
+    radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+  z-index: 1;
+}
+
+/* 3. LIQUID GLASS SIDE DRAWER PANEL */
+.nav__inner:where(.astro-6pgdx2k7),
+#burger-nav .nav__inner {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  padding-block: 6.5rem 3rem !important;
+  padding-inline: max(1.5rem, 5vw) !important;
+  max-width: 620px !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(212, 175, 55, 0.3) transparent !important;
+}
+
+.main-navigation:where(.astro-2b3woooi),
+#burger-nav .main-navigation {
+  width: 100% !important;
+  max-width: 560px !important;
+  grid-column: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.25rem !important;
+  padding: 2.2rem !important;
+  border-radius: 24px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  backdrop-filter: blur(28px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(18, 60, 54, 0.35) !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+.main-navigation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  border-radius: 24px 24px 0 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}
+
+/* 4. LIQUID GLASS SECTION LINKS (CLICK DIRECTLY TAKES TO THAT SECTION) */
+.main-navigation__list:where(.astro-2b3woooi),
+#burger-nav .main-navigation__list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.55rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.main-navigation__item:where(.astro-2b3woooi),
+#burger-nav .main-navigation__item {
+  width: 100% !important;
+  padding: 0 !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
+.main-navigation__link:where(.astro-2b3woooi),
+#burger-nav .main-navigation__link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  padding: 0.85rem 1.4rem !important;
+  border-radius: 14px !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  color: #ffffff !important;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(1.35rem, 2.2vw, 1.85rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.03em !important;
+  text-transform: capitalize !important;
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+  position: relative !important;
+  overflow: hidden !important;
+  opacity: 1 !important;
+}
+
+.main-navigation__link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.2) 0%, rgba(255, 255, 255, 0.1) 40%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.main-navigation__link:hover,
+.main-navigation__item--active .main-navigation__link {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(212, 175, 55, 0.45) !important;
+  color: #A88955 !important;
+  transform: translateX(8px) !important;
+  box-shadow: 
+    0 10px 28px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(212, 175, 55, 0.2) !important;
+}
+
+.main-navigation__link:hover::before {
+  opacity: 1;
+}
+
+.main-navigation__link-inner {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.main-navigation__link::after {
+  content: "→";
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: rgba(212, 175, 55, 0.6);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.main-navigation__link:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+  color: #A88955;
+}
+
+.header--has-active-item .main-navigation__link:where(.astro-2b3woooi) {
+  opacity: 1 !important;
+}
+
+/* 5. COMPLETELY HIDE SUBCATEGORIES ACCORDION / DRAWER */
+.sub-navigation,
+.sub-navigation--active,
+[id$="-submenu"],
+.sub-navigation:where(.astro-nw2ai343) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 6. LIQUID GLASS QUICK LINKS & ENQUIRE */
+.quick-links:where(.astro-ecl7ayfp),
+.nav__action:where(.astro-6pgdx2k7) {
+  margin-top: 1.25rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding-top: 1.25rem !important;
+}
+
+.quick-links__link {
+  color: rgba(255, 255, 255, 0.7) !important;
+  transition: color 0.25s ease !important;
+}
+
+.quick-links__link:hover {
+  color: #A88955 !important;
+}
+
+/* === END LIQUID GLASS SIDE NAV === */

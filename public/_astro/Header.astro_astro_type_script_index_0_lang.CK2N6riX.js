@@ -92,13 +92,13 @@ o.data(
         window.plausible && window.plausible(c));
     },
     handleNavigationItemClick(e, t) {
-      if (!t || window.innerWidth > 1024) return;
-      (e.preventDefault(), e.stopPropagation());
-      const r = e.target,
-        i = r.parentElement,
-        s = r.parentElement?.getAttribute("data-name");
-      (i.getAttribute("data-bts") === "true" && (this.btsTheme = !0),
-        (this.activeItem = s));
+      this.isOpen = false;
+      this.activeItem = null;
+      const link = (e && e.target) ? (e.target.closest ? e.target.closest('a') : e.target) : null;
+      if (link && link.href) {
+        window.location.href = link.href;
+      }
+      return true;
     },
     onNavigationMouseLeave() {
       window.innerWidth < 1024 ||
@@ -108,17 +108,11 @@ o.data(
       ((this.activeItem = null), (this.btsTheme = !1));
     },
     startNavigationHoverIntentTimer(e) {
-      if (window.innerWidth > 1024) {
-        this.hoverIntentTimer && this.clearNavigationHoverIntentTimer();
-        const t = e.currentTarget;
-        if (!t) return;
-        this.hoverIntentTimer = setTimeout(() => {
-          (t.getAttribute("data-bts") === "true"
-            ? (this.btsTheme = !0)
-            : (this.btsTheme = !1),
-            (this.activeItem = t.getAttribute("data-name")));
-        }, 150);
+      if (this.hoverIntentTimer) {
+        clearTimeout(this.hoverIntentTimer);
+        this.hoverIntentTimer = null;
       }
+      return;
     },
     clearNavigationHoverIntentTimer() {
       this.hoverIntentTimer && clearTimeout(this.hoverIntentTimer);
