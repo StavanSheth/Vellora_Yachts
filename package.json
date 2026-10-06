@@ -1,0 +1,13 @@
+{
+  "name": "velora-yachts",
+  "version": "1.0.0",
+  "description": "VELORA — Private Worlds. Curated. Luxury Yachting Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["velora", "yachts", "luxury", "charter", "sales"],
+  "author": "",
+  "license": "ISC"
+}

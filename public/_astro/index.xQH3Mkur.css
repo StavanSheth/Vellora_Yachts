@@ -1,0 +1,258 @@
+.ui-button:where(.astro-bakowlib) {
+  --button-border-width: 2px;
+  --button-padding: initial;
+  --button-text-color: rgb(32 32 32 / 1);
+  --button-background-color: transparent;
+  --button-visor-color: rgb(168 137 85 / 1);
+  --button-border-color: transparent;
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  justify-content: center;
+  width: inherit;
+  padding: var(--button-padding);
+  color: var(--button-text-color);
+  text-align: center;
+  background-color: var(--button-background-color);
+  border-radius: 2px;
+  transition:
+    color 0.25s cubic-bezier(0.165, 0.84, 0.44, 1),
+    background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ui-button:where(.astro-bakowlib):before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-color: var(--button-border-color);
+  border-style: solid;
+  border-width: var(--button-border-width);
+  transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ui-button:where(.astro-bakowlib):after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  translate: 0 101% 0;
+  background-color: var(--button-visor-color);
+  transition:
+    translate 0.25s cubic-bezier(0.165, 0.84, 0.44, 1),
+    background-color 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.ui-button--size-small:where(.astro-bakowlib) {
+  --button-padding: 16px 24px;
+}
+.ui-button--size-large:where(.astro-bakowlib),
+.ui-button--size-x-large:where(.astro-bakowlib) {
+  --button-padding: 24px 40px;
+}
+.ui-button--size-x-large:where(.astro-bakowlib) {
+  --button-border-width: 3px;
+}
+.ui-button--border-thin:where(.astro-bakowlib) {
+  --button-border-width: 2px;
+}
+.ui-button--border-thick:where(.astro-bakowlib) {
+  --button-border-width: 3px;
+}
+.ui-button--type-yellow:where(.astro-bakowlib) {
+  --button-background-color: var(--yco-surface-accent-color);
+  --button-visor-color: rgb(168 137 85 / 1);
+}
+.ui-button--type-offblack:where(.astro-bakowlib) {
+  --button-text-color: rgb(255 255 255 / 1);
+  --button-background-color: rgb(32 32 32 / 1);
+  --button-visor-color: rgb(52 52 52 / 1);
+}
+.ui-button--type-offblack-outline:where(.astro-bakowlib) {
+  --button-text-color: rgb(32 32 32 / 1);
+  --button-border-color: rgb(32 32 32 / 1);
+  --button-visor-color: rgb(32 32 32 / 1);
+}
+.ui-button--type-white:where(.astro-bakowlib) {
+  --button-background-color: rgb(255 255 255 / 1);
+  --button-visor-color: rgb(211 211 211 / 1);
+}
+.ui-button--type-white-dark:where(.astro-bakowlib) {
+  --button-background-color: rgb(255 255 255 / 1);
+  --button-visor-color: rgb(32 32 32 / 1);
+}
+.ui-button--type-yellow-outline:where(.astro-bakowlib),
+.ui-button--type-yellow-outline-dark:where(.astro-bakowlib) {
+  --button-border-color: var(--yco-surface-accent-color);
+  --button-visor-color: rgb(168 137 85 / 1);
+}
+.section--bts
+  .ui-button:where(.astro-bakowlib).ui-button--type-yellow-outline:not(:hover) {
+  --button-text-color: rgb(255 255 255 / 1);
+}
+[data-theme="dark"]
+  .ui-button:where(.astro-bakowlib).ui-button--type-yellow-outline:not(:hover) {
+  --button-text-color: rgb(255 255 255 / 1);
+}
+.ui-button--type-yellow-outline-dark:where(.astro-bakowlib),
+.ui-button--type-yellow-underline-dark:where(.astro-bakowlib) {
+  --button-text-color: rgb(255 255 255 / 1);
+}
+.ui-button--type-grey-outline:where(.astro-bakowlib) {
+  --button-border-color: rgb(211 211 211 / 1);
+  --button-visor-color: rgb(211 211 211 / 1);
+}
+.ui-button--type-white-outline:where(.astro-bakowlib) {
+  --button-text-color: rgb(255 255 255 / 1);
+  --button-border-color: rgb(255 255 255 / 1);
+  --button-visor-color: rgb(211 211 211 / 1);
+}
+.ui-button--type-yellow-underline:where(.astro-bakowlib),
+.ui-button--type-yellow-underline-dark:where(.astro-bakowlib),
+.ui-button--type-white-underline:where(.astro-bakowlib) {
+  --button-visor-color: none;
+}
+.ui-button--type-white-underline:where(.astro-bakowlib) {
+  --button-text-color: rgb(255 255 255 / 1);
+}
+a:active .ui-button--type-offblack:where(.astro-bakowlib),
+button:active .ui-button--type-offblack:where(.astro-bakowlib) {
+  --button-visor-color: rgb(32 32 32 / 0);
+}
+a:active .ui-button--type-grey-outline:where(.astro-bakowlib),
+button:active .ui-button--type-grey-outline:where(.astro-bakowlib) {
+  --button-visor-color: rgb(175 175 175 / 1);
+}
+a:active .ui-button--type-white:where(.astro-bakowlib),
+button:active .ui-button--type-white:where(.astro-bakowlib) {
+  --button-visor-color: rgb(255 255 255 / 0);
+}
+a:active .ui-button--type-white-outline:where(.astro-bakowlib),
+button:active .ui-button--type-white-outline:where(.astro-bakowlib) {
+  --button-visor-color: rgb(255 255 255 / 1);
+}
+a:disabled .ui-button:where(.astro-bakowlib):after,
+button:disabled .ui-button:where(.astro-bakowlib):after {
+  display: none;
+}
+a:disabled .ui-button--type-yellow:where(.astro-bakowlib),
+a:disabled .ui-button--type-yellow-outline:where(.astro-bakowlib),
+a:disabled .ui-button--type-yellow-outline-dark:where(.astro-bakowlib),
+button:disabled .ui-button--type-yellow:where(.astro-bakowlib),
+button:disabled .ui-button--type-yellow-outline:where(.astro-bakowlib),
+button:disabled .ui-button--type-yellow-outline-dark:where(.astro-bakowlib) {
+  --button-background-color: rgb(255 240 194 / 1);
+  --button-border-color: rgb(255 240 194 / 1);
+}
+a:disabled .ui-button--type-yellow:where(.astro-bakowlib),
+a:disabled .ui-button--type-yellow-outline:where(.astro-bakowlib),
+button:disabled .ui-button--type-yellow:where(.astro-bakowlib),
+button:disabled .ui-button--type-yellow-outline:where(.astro-bakowlib) {
+  --button-text-color: rgb(124 124 124 / 1);
+}
+a:disabled .ui-button--type-yellow-outline-dark:where(.astro-bakowlib),
+button:disabled .ui-button--type-yellow-outline-dark:where(.astro-bakowlib) {
+  --button-text-color: rgb(124 124 124 / 1);
+}
+a:disabled .ui-button--type-offblack:where(.astro-bakowlib),
+a:disabled .ui-button--type-offblack-outline:where(.astro-bakowlib),
+a:disabled .ui-button--type-grey-outline:where(.astro-bakowlib),
+button:disabled .ui-button--type-offblack:where(.astro-bakowlib),
+button:disabled .ui-button--type-offblack-outline:where(.astro-bakowlib),
+button:disabled .ui-button--type-grey-outline:where(.astro-bakowlib) {
+  --button-text-color: rgb(124 124 124 / 1);
+  --button-background-color: rgb(241 241 241 / 1);
+  --button-border-color: rgb(241 241 241 / 1);
+}
+a:disabled .ui-button--type-white:where(.astro-bakowlib),
+a:disabled .ui-button--type-white-outline:where(.astro-bakowlib),
+button:disabled .ui-button--type-white:where(.astro-bakowlib),
+button:disabled .ui-button--type-white-outline:where(.astro-bakowlib) {
+  --button-text-color: rgb(211 211 211 / 1);
+  --button-background-color: rgb(52 52 52 / 1);
+  --button-border-color: rgb(52 52 52 / 1);
+}
+@media (hover: hover) {
+  a:hover .ui-button:where(.astro-bakowlib):after,
+  button:hover .ui-button:where(.astro-bakowlib):after {
+    translate: 0 0 0;
+  }
+  a:hover .ui-button--type-offblack-outline:where(.astro-bakowlib),
+  button:hover .ui-button--type-offblack-outline:where(.astro-bakowlib) {
+    --button-text-color: rgb(255 255 255 / 1);
+  }
+  a:hover .ui-button--type-white-dark:where(.astro-bakowlib),
+  button:hover .ui-button--type-white-dark:where(.astro-bakowlib) {
+    --button-text-color: rgb(255 255 255 / 1);
+  }
+  a:hover .ui-button--type-yellow-outline-dark:where(.astro-bakowlib),
+  button:hover .ui-button--type-yellow-outline-dark:where(.astro-bakowlib) {
+    --button-text-color: rgb(32 32 32 / 1);
+  }
+  a:hover .ui-button--type-white-outline:where(.astro-bakowlib),
+  button:hover .ui-button--type-white-outline:where(.astro-bakowlib) {
+    --button-text-color: rgb(32 32 32 / 1);
+  }
+}
+.ui-button__text:where(.astro-bakowlib) {
+  position: relative;
+  z-index: 2;
+}
+.ui-button--type-yellow-underline:where(.astro-bakowlib)
+  .ui-button__text:where(.astro-bakowlib),
+.ui-button--type-yellow-underline-dark:where(.astro-bakowlib)
+  .ui-button__text:where(.astro-bakowlib),
+.ui-button--type-white-underline:where(.astro-bakowlib)
+  .ui-button__text:where(.astro-bakowlib) {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+.ui-button--type-yellow-underline-dark:where(.astro-bakowlib)
+  .ui-button__text:where(.astro-bakowlib),
+.ui-button--type-yellow-underline:where(.astro-bakowlib)
+  .ui-button__text:where(.astro-bakowlib) {
+  text-decoration-color: #A88955;
+}
+.ui-button__cursor:where(.astro-bakowlib) {
+  --custom-blur: 20px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  translate: calc(-50% + (var(--cursor-x) * -1px))
+    calc(-50% + (var(--cursor-y) * -1px)) 0;
+  width: 300%;
+  height: 300%;
+  opacity: 0;
+  background-image: radial-gradient(
+    circle closest-side,
+    #A88955 33%,
+    #A8895500
+  );
+  filter: blur(var(--custom-blur));
+  border-radius: 50%;
+  transition: opacity 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.ui-button--hover:where(.astro-bakowlib)
+  .ui-button__cursor:where(.astro-bakowlib) {
+  opacity: 1;
+  transition: opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+a:active .ui-button__cursor:where(.astro-bakowlib),
+button:active .ui-button__cursor:where(.astro-bakowlib) {
+  opacity: 0;
+}
+a:disabled .ui-button__cursor:where(.astro-bakowlib),
+button:disabled .ui-button__cursor:where(.astro-bakowlib) {
+  display: none;
+}
+a:focus-visible .ui-button:where(.astro-bakowlib),
+button:focus-visible .ui-button:where(.astro-bakowlib) {
+  border-radius: 2px;
+  outline: 1px solid rgb(175 175 175 / 1);
+  outline-offset: 4px;
+}
+a:has(.ui-button),
+button:has(.ui-button) {
+  outline: 0;
+}

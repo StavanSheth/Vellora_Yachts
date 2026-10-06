@@ -1,0 +1,695 @@
+/* ==========================================================================
+   VELORA LUXURY DESIGN SYSTEM
+   Private Worlds. Curated.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+
+:root {
+  /* Brand Color Tokens */
+  --velora-jade: #123C36;
+  --velora-teal: #1F5A50;
+  --velora-ivory: #F5F1E8;
+  --velora-sand: #DDD4C3;
+  --velora-carbon: #151817;
+  --velora-brass: #A88955;
+  --velora-white: #FCFBF7;
+
+  /* Compatibility Mapping */
+  --yco-surface-color: var(--velora-ivory);
+  --yco-surface-foreground-color: var(--velora-carbon);
+  --yco-surface-accent-color: var(--velora-brass);
+}
+
+/* Base Body Styling */
+body {
+  background-color: var(--velora-ivory) !important;
+  color: var(--velora-carbon) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   Typography Hierarchy
+   ========================================================================== */
+
+h1, h2, h3, h4,
+.type-h1, .type-h2, .type-h3, .type-h4,
+.hero__heading, .featured-card__heading, .card-article__heading,
+.section-fixed-card-grid__heading {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+  letter-spacing: -0.015em !important;
+  font-weight: 500 !important;
+}
+
+body, p, span, a, button, input, textarea,
+.type-subtitle, .type-subtitle-sm, .type-h5, .type-h6, .type-body,
+.main-navigation__link, .header__link, .ui-button__text, .ui-tag {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* ==========================================================================
+   Issue 1 Fix: Floating Cursor Suppressed & Card Explore Badge on Hover
+   ========================================================================== */
+
+/* Disable floating text cursor following the mouse */
+.cursor,
+[x-data="cursor"],
+.astro-c3o4aufl.cursor,
+.cursor--active,
+.cursor--scrolling {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  transform: none !important;
+}
+
+.cursor-wrapper {
+  cursor: pointer !important;
+}
+
+/* Card Explore badge displayed smoothly on the card image itself */
+.card-info .card-info__linkText {
+  display: inline-flex !important;
+  opacity: 0 !important;
+  transform: translateY(10px) !important;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  margin-top: 18px !important;
+  padding-top: 0 !important;
+  position: relative !important;
+  z-index: 5 !important;
+  pointer-events: auto !important;
+}
+
+.card-info:hover .card-info__linkText,
+.card-wrapper:hover .card-info__linkText {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.card-info__linkText .ui-link__box {
+  border: none !important;
+}
+
+.card-info__linkText .ui-link__text,
+.card-info__linkText .ui-link__text:before {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.24em !important;
+  text-transform: uppercase !important;
+  color: var(--velora-white) !important;
+  background: rgba(18, 60, 54, 0.9) !important;
+  border: 1px solid var(--velora-brass) !important;
+  padding: 8px 20px !important;
+  border-radius: 2px !important;
+  backdrop-filter: blur(10px) !important;
+  display: inline-block !important;
+  position: relative !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Card hover animation */
+.card-info {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease !important;
+}
+
+.card-info:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 16px 36px rgba(18, 60, 54, 0.1) !important;
+}
+
+/* ==========================================================================
+   Issue 2 Fix: Sticky Story Headline Sizing & Positioning
+   ========================================================================== */
+
+.sticky-story__text:where(.astro-3arsvgwz),
+.sticky-story__text {
+  z-index: 2 !important;
+  position: sticky !important;
+  max-width: 520px !important;
+}
+
+.sticky-story__text-heading:where(.astro-3arsvgwz),
+.sticky-story__text-heading,
+.sticky-story .type-giga {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(2.2rem, 3.8vw, 3.8rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.015em !important;
+  text-transform: uppercase !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  color: var(--velora-jade) !important;
+  margin-bottom: 28px !important;
+  max-width: 100% !important;
+}
+
+.sticky-story.section--primary .sticky-story__text-heading,
+.sticky-story.section--bts .sticky-story__text-heading {
+  color: var(--velora-jade) !important;
+}
+
+.sticky-story__text-copy:where(.astro-3arsvgwz),
+.sticky-story__text-copy {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.65 !important;
+  color: var(--velora-carbon) !important;
+  max-width: 420px !important;
+}
+
+.sticky-story__gallery-item:where(.astro-3arsvgwz),
+.sticky-story__gallery-item {
+  z-index: 1 !important;
+  border-radius: 2px !important;
+  box-shadow: 0 16px 40px rgba(18, 60, 54, 0.12) !important;
+}
+
+/* ==========================================================================
+   Navigation Bar: Liquid Glass Around Texts Only & Always Velora Shade Color
+   ========================================================================== */
+
+/* Entire Navbar Container is Transparent (no bar-wide glass) */
+header.header,
+header.header.header--has-scrolled,
+header.header.header--hero,
+header.header:not(.header--has-scrolled),
+.header,
+.header.header--has-scrolled,
+.header__outer,
+.header__visor {
+  background: transparent !important;
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.header__visor {
+  display: none !important;
+}
+
+.header__inner {
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+  align-items: center !important;
+}
+
+/* 1. Liquid Glass Capsule Around Logo */
+.header__logo.velora-logo-link {
+  background: rgba(245, 241, 232, 0.78) !important;
+  backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
+  border: 1px solid rgba(168, 137, 85, 0.35) !important;
+  border-radius: 9999px !important;
+  padding: 8px 24px !important;
+  margin-inline-start: 0 !important;
+  margin-right: 20px !important;
+  box-shadow: 0 6px 22px rgba(18, 60, 54, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important;
+}
+
+.header__logo.velora-logo-link:hover {
+  background: rgba(245, 241, 232, 0.9) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 26px rgba(18, 60, 54, 0.16), inset 0 1px 1px rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Logo Text - ALWAYS Velora Shade */
+.velora-logo-wordmark,
+.header .velora-logo-wordmark,
+.header--has-scrolled .velora-logo-wordmark,
+header.header:not(.header--has-scrolled) .velora-logo-wordmark {
+  color: var(--velora-jade) !important;
+}
+
+.velora-logo-tagline,
+.header .velora-logo-tagline,
+.header--has-scrolled .velora-logo-tagline,
+header.header:not(.header--has-scrolled) .velora-logo-tagline {
+  color: var(--velora-brass) !important;
+}
+
+/* 2. Liquid Glass Circle Around Burger Button */
+.header__switch-desktop {
+  background: rgba(245, 241, 232, 0.78) !important;
+  backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
+  border: 1px solid rgba(168, 137, 85, 0.35) !important;
+  border-radius: 50% !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 6px 20px rgba(18, 60, 54, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+  margin-right: 14px !important;
+  cursor: pointer !important;
+  color: var(--velora-jade) !important;
+  transition: all 0.25s ease !important;
+}
+
+.header__switch-desktop:hover {
+  background: rgba(245, 241, 232, 0.9) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 24px rgba(18, 60, 54, 0.16) !important;
+}
+
+.header__switch-desktop .header-burger {
+  color: var(--velora-jade) !important;
+  width: 36px !important;
+  height: 36px !important;
+  padding: 8px !important;
+}
+
+.header__switch-desktop .header-burger__inner:before,
+.header__switch-desktop .header-burger__inner:after,
+.header-burger__inner:before,
+.header-burger__inner:after {
+  background-color: var(--velora-jade) !important;
+}
+
+/* 3. Liquid Glass Capsule Around Navigation Text Links */
+@media (min-width: 1024px) {
+  .header__nav-inner,
+  .header__list {
+    background: rgba(245, 241, 232, 0.78) !important;
+    backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
+    border: 1px solid rgba(168, 137, 85, 0.35) !important;
+    border-radius: 9999px !important;
+    padding: 5px 14px !important;
+    box-shadow: 0 6px 22px rgba(18, 60, 54, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+}
+
+/* Navigation Text Links - ALWAYS Velora Shade Color */
+header.header .header__link,
+header.header .header__item a,
+header.header .header__item button,
+header.header .header__list a,
+header.header .header__list button,
+header.header .header__primary a,
+header.header .header__primary button,
+header.header:not(.header--has-scrolled) .header__link,
+header.header:not(.header--has-scrolled) .header__item a,
+header.header:not(.header--has-scrolled) .header__item button,
+.header--has-scrolled .header__link,
+.header--has-scrolled .header__item a,
+.header--has-scrolled .header__item button,
+.header__link,
+.header__item a,
+.header__item button {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: var(--velora-jade) !important;
+  padding: 6px 14px !important;
+  border-radius: 9999px !important;
+  transition: all 0.25s ease !important;
+}
+
+header.header .header__link:hover,
+header.header .header__item a:hover,
+header.header .header__item button:hover,
+.header__link:hover {
+  color: var(--velora-brass) !important;
+  background: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* 4. Liquid Glass Capsule Around Secondary Action Icons */
+.header__secondary {
+  background: rgba(245, 241, 232, 0.78) !important;
+  backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(190%) contrast(95%) !important;
+  border: 1px solid rgba(168, 137, 85, 0.35) !important;
+  border-radius: 9999px !important;
+  padding: 4px 10px !important;
+  box-shadow: 0 6px 22px rgba(18, 60, 54, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* Action Icons - ALWAYS Velora Shade Color */
+.header__secondary button,
+.header__secondary a,
+.header__search-icon,
+.moodboard-button__icon,
+.header-user__btn,
+.header__charter-ai-icon,
+.header__secondary svg,
+header.header:not(.header--has-scrolled) .header__secondary svg,
+.header--has-scrolled .header__secondary svg {
+  color: var(--velora-jade) !important;
+  fill: currentColor !important;
+  transition: color 0.2s ease, transform 0.2s ease !important;
+}
+
+.header__secondary button:hover svg,
+.header__secondary a:hover svg,
+.header__secondary button:hover,
+.header__secondary a:hover {
+  color: var(--velora-brass) !important;
+  fill: var(--velora-brass) !important;
+}
+
+/* 5. ENQUIRE Button */
+.header__cta-desktop .ui-button,
+.header__cta-desktop .ui-button--type-yellow {
+  background: var(--velora-jade) !important;
+  border: 1.5px solid var(--velora-brass) !important;
+  color: var(--velora-white) !important;
+  border-radius: 9999px !important;
+  padding: 12px 28px !important;
+  box-shadow: 0 6px 20px rgba(18, 60, 54, 0.25) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  transition: all 0.25s ease !important;
+}
+
+.header__cta-desktop .ui-button:hover,
+.header__cta-desktop .ui-button--type-yellow:hover {
+  background: var(--velora-teal) !important;
+  border-color: var(--velora-brass) !important;
+  color: var(--velora-white) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 24px rgba(18, 60, 54, 0.35) !important;
+}
+
+/* ==========================================================================
+   Issue 4 Fix: Footer Signup Input, Submit Button, Checkbox Visibility
+   ========================================================================= */
+
+footer.footer,
+.footer,
+section:has(.footer) {
+  background-color: var(--velora-jade) !important;
+  color: var(--velora-white) !important;
+  border-top: 1px solid var(--velora-teal) !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+footer .footer__heading {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(2.4rem, 4vw, 3.8rem) !important;
+  color: var(--velora-white) !important;
+  letter-spacing: -0.01em !important;
+}
+
+footer .footer__copy {
+  color: var(--velora-sand) !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  margin-bottom: 24px !important;
+}
+
+/* Email Input - Crisp & Visible */
+footer input[type="text"],
+footer input[type="email"],
+footer .yco-input-wrapper input {
+  background: #FCFBF7 !important;
+  color: var(--velora-carbon) !important;
+  border: 1.5px solid var(--velora-brass) !important;
+  border-radius: 2px !important;
+  padding: 16px 22px !important;
+  font-size: 0.95rem !important;
+  font-family: 'Inter', sans-serif !important;
+  width: 100% !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+}
+
+footer input::placeholder,
+footer input::-moz-placeholder {
+  color: rgba(21, 24, 23, 0.55) !important;
+}
+
+footer input:focus {
+  border-color: #c9a56c !important;
+  outline: 2px solid rgba(168, 137, 85, 0.4) !important;
+}
+
+/* Prominent Sign Up Button */
+footer .yco-form-newsletter__submit,
+footer button[type="submit"],
+footer .ui-button--type-offblack {
+  background: var(--velora-brass) !important;
+  border: 1.5px solid var(--velora-brass) !important;
+  color: #FCFBF7 !important;
+  border-radius: 2px !important;
+  padding: 14px 34px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+footer .yco-form-newsletter__submit:hover,
+footer button[type="submit"]:hover,
+footer .ui-button--type-offblack:hover {
+  background: #bf9e65 !important;
+  border-color: #bf9e65 !important;
+  color: var(--velora-jade) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+footer .ui-button__text,
+footer .yco-form-newsletter__submit .ui-button__text,
+footer .ui-button--type-offblack .ui-button__text {
+  color: #FCFBF7 !important;
+}
+
+footer .yco-form-newsletter__submit:hover .ui-button__text,
+footer .ui-button--type-offblack:hover .ui-button__text {
+  color: var(--velora-jade) !important;
+}
+
+/* Checkbox & Consent Label */
+footer input[type="checkbox"],
+footer input.yco-input-checkbox,
+footer .yco-input-checkbox {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  border: 1.5px solid var(--velora-brass) !important;
+  background-color: rgba(252, 251, 247, 0.08) !important;
+  border-radius: 2px !important;
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px !important;
+  max-width: 20px !important;
+  min-height: 20px !important;
+  max-height: 20px !important;
+  margin-top: 3px !important;
+  margin-right: 14px !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  position: relative !important;
+  transition: border-color 0.2s ease, background-color 0.2s ease !important;
+}
+
+footer input.yco-input-checkbox:before {
+  background-color: var(--velora-brass) !important;
+}
+
+footer input[type="checkbox"]:checked,
+footer input.yco-input-checkbox:checked {
+  background-color: var(--velora-brass) !important;
+}
+
+footer input.yco-input-checkbox:checked:after {
+  opacity: 1 !important;
+}
+
+footer label[for="newsletter"],
+footer .astro-qkla3maa label {
+  color: var(--velora-sand) !important;
+  font-size: 0.85rem !important;
+  line-height: 1.55 !important;
+  cursor: pointer !important;
+}
+
+/* Footer Navigation Links */
+footer a,
+footer .footer a {
+  color: var(--velora-sand) !important;
+  transition: color 0.25s ease !important;
+}
+
+footer a:hover,
+footer .footer a:hover {
+  color: var(--velora-brass) !important;
+}
+
+/* ==========================================================================
+   Hero & Logo
+   ========================================================================== */
+
+.velora-hero-pretitle {
+  display: block;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.35em !important;
+  text-transform: uppercase !important;
+  color: var(--velora-brass) !important;
+  margin-bottom: 14px !important;
+}
+
+.velora-hero-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: clamp(3rem, 7vw, 6.5rem) !important;
+  line-height: 1.05 !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--velora-white) !important;
+  text-transform: none !important;
+}
+
+.velora-hero-sub {
+  font-style: italic;
+  font-weight: 400;
+  display: inline-block;
+}
+
+.hero-search__bar .search-button {
+  border: 1.5px solid var(--velora-brass) !important;
+  background: rgba(18, 60, 54, 0.45) !important;
+  backdrop-filter: blur(14px) !important;
+  border-radius: 2px !important;
+}
+
+.hero-search__bar .search-button .search-button__submit,
+.hero-search__bar .search-button .ui-button--type-yellow {
+  background-color: var(--velora-brass) !important;
+  color: var(--velora-white) !important;
+  border: none !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.1em !important;
+}
+
+/* Wordmark Logo */
+.velora-logo-container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.velora-logo-wordmark {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--velora-jade) !important;
+  transition: color 0.3s ease;
+}
+
+.velora-logo-tagline {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.45rem;
+  letter-spacing: 0.32em;
+  font-weight: 600;
+  color: var(--velora-brass);
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+
+/* Burger Menu Overlay */
+#burger-nav .nav__main-visor,
+.nav__main-visor,
+.main-navigation {
+  background-color: var(--velora-jade) !important;
+  color: var(--velora-white) !important;
+}
+
+.main-navigation__link {
+  color: var(--velora-white) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 400 !important;
+  transition: color 0.3s ease !important;
+}
+
+.main-navigation__link:hover,
+.main-navigation__item--active .main-navigation__link {
+  color: var(--velora-brass) !important;
+}
+
+.sub-navigation {
+  background-color: rgba(18, 60, 54, 0.98) !important;
+  border-left: 1px solid rgba(168, 137, 85, 0.2) !important;
+}
+
+.sub-navigation__link {
+  color: var(--velora-sand) !important;
+}
+
+.sub-navigation__link:hover {
+  color: var(--velora-brass) !important;
+}
+
+/* General Buttons & Tags */
+.ui-button--type-yellow {
+  background-color: var(--velora-jade) !important;
+  color: var(--velora-white) !important;
+  border: 1px solid var(--velora-jade) !important;
+  border-radius: 2px !important;
+  transition: all 0.3s ease !important;
+}
+
+.ui-button--type-yellow:hover {
+  background-color: var(--velora-teal) !important;
+  border-color: var(--velora-teal) !important;
+  color: var(--velora-white) !important;
+}
+
+.ui-tag,
+.ui-tag--type-yellow {
+  background-color: var(--velora-sand) !important;
+  color: var(--velora-jade) !important;
+  border-radius: 2px !important;
+  font-weight: 500 !important;
+}
+
+.ui-tag:before,
+.ui-tag--type-yellow:before {
+  background-color: var(--velora-brass) !important;
+}
+
+.section--primary,
+.section--bts {
+  background-color: var(--velora-sand) !important;
+  color: var(--velora-carbon) !important;
+}
+
+.section--primary h1, .section--primary h2, .section--primary h3,
+.section--primary h4, .section--primary h5, .section--primary h6 {
+  color: var(--velora-jade) !important;
+}
